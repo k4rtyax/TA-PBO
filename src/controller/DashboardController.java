@@ -79,5 +79,9 @@ public class DashboardController {
       @FXML
     private void openPemeriksaan() {
         //SceneUtil.openMaximizedWindow("/view/pemeriksaan.fxml","pemeriksaan");
-    }  
+    }
+    @FXML
+    private void openPrediksi() {
+        SceneUtil.openMaximizedWindow("/view/prediksi.fxml", "Prediksi Risiko Diabetes");
+    }
 }

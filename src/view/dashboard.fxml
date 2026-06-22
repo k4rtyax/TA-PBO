@@ -67,7 +67,8 @@
                     styleClass="menu-btn"/>
 
             <Button fx:id="btnPrediksi" text="🧠  Prediksi ML"
-                    styleClass="menu-btn"/>
+                    styleClass="menu-btn"
+                    onAction="#openPrediksi"/>
 
             <Label fx:id="lblLaporan" text="LAPORAN"
                 styleClass="menu-group"/>
