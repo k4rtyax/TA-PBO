@@ -44,11 +44,11 @@ git push origin main
 - [ ] Buat Controller untuk dokter dan sambungkan ke Dashboard
 
 ### Modul Prediksi Risiko Diabetes (Machine Learning)
-- [ ] Buat script Python (train.py) untuk melatih model dari dataset
-- [ ] Simpan hasil model machine learning (.pkl)
-- [ ] Buat script Python (predict.py) untuk menjalankan prediksi
-- [ ] Buat UI prediksi.fxml untuk memasukkan data medis pasien
-- [ ] Buat Controller Prediksi dan integrasikan dengan Python menggunakan ProcessBuilder
+- [x] Buat script Python (train.py) untuk melatih model dari dataset
+- [x] Simpan hasil model machine learning (.pkl)
+- [x] Buat script Python (predict.py) untuk menjalankan prediksi
+- [x] Buat UI prediksi.fxml untuk memasukkan data medis pasien
+- [x] Buat Controller Prediksi dan integrasikan dengan Python menggunakan ProcessBuilder
 
 ### Modifikasi Tambahan(todo)
 - [ ] Tambahkan field No HP dan Alamat pada data Pasien
