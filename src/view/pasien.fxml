@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.PasienController"
+            stylesheets="@style.css">
+
+    <!-- TOP -->
+    <top>
+
+        <VBox spacing="10" styleClass="top-panel">
+
+            <Label text="SMART CLINIC"
+                   styleClass="title"  maxWidth="Infinity"
+       alignment="CENTER" />
+
+            <!-- TOOLBAR -->
+              <HBox spacing="15"
+      alignment="CENTER">
+
+    <Button text="➕"
+            onAction="#handleTambah"
+            styleClass="btn-tambah"/>
+
+    <Button text="✏"
+            onAction="#handleEdit"
+            styleClass="btn-edit"/>
+
+    <Button text="🗑"
+            onAction="#handleHapus"
+            styleClass="btn-hapus"/>
+
+    <Button text="🔄"
+            onAction="#loadData"
+            styleClass="btn-refresh"/>
+
+    <TextField fx:id="txtCari"
+               promptText="Cari pasien..."
+               prefWidth="180"/>
+
+    <Button text="🔍"
+            onAction="#handleCari"
+            styleClass="btn-cari"/>
+
+    <Button text="❌"
+            onAction="#handleClose"
+            styleClass="btn-close"/>
+
+</HBox>
+
+        </VBox>
+
+    </top>
+
+    <!-- CENTER -->
+ <center>
+
+    <VBox spacing="15" styleClass="main-panel">
+
+        <!-- TABLE -->
+        <TableView fx:id="tablePasien"
+                   VBox.vgrow="ALWAYS">
+
+            <columns>
+
+                <TableColumn fx:id="colId"
+                             text="ID"/>
+
+                <TableColumn fx:id="colNama"
+                             text="Nama"/>
+
+                <TableColumn fx:id="colUmur"
+                             text="Umur"/>
+
+                <TableColumn fx:id="colGender"
+                             text="Gender"/>
+
+                <TableColumn fx:id="colAlamat"
+                             text="Alamat"/>
+
+                <TableColumn fx:id="colHP"
+                             text="No HP"/>
+
+                <TableColumn fx:id="colTekanan"
+                             text="Tekanan"/>
+
+                <TableColumn fx:id="colGula"
+                             text="Gula"/>
+
+            </columns>
+
+        </TableView>
+
+    </VBox>
+
+</center>
+
+</BorderPane>

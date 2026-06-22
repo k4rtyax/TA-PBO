@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.DashboardController"
+            stylesheets="@style.css"
+            styleClass="root-dashboard">
+
+    <!-- SIDEBAR -->
+<left>
+
+    <ScrollPane fitToWidth="true"
+                hbarPolicy="NEVER"
+                vbarPolicy="AS_NEEDED"
+                styleClass="sidebar-scroll">
+
+        <VBox fx:id="sidebar"
+              spacing="5"
+              alignment="TOP_CENTER"
+              prefWidth="240"
+              styleClass="sidebar">
+
+            <Button text="☰"
+                    onAction="#toggleSidebar"
+                    styleClass="toggle-btn"/>
+
+            <Label fx:id="logoTitle"
+                   text="SMART CLINIC"
+                   styleClass="logo-title"/>
+
+            <Separator prefWidth="180"/>
+
+            <!-- MENU -->
+            <!-- MENU -->
+            <Button fx:id="btnDashboard" text="🏠  Dashboard"
+                    styleClass="menu-btn"/>
+
+            <Label fx:id="lblMaster" text="MASTER DATA"
+                styleClass="menu-group"/>
+
+            <Button fx:id="btnPasien" text="👨‍⚕  Pasien"
+                    styleClass="menu-btn"
+                    onAction="#openPasien"/>
+
+            <Button fx:id="btnDokter" text="🩺  Dokter"
+                    styleClass="menu-btn" onAction="#openDokter" />
+
+            <Button fx:id="btnPetugas" text="👩‍💼  Petugas"
+                    styleClass="menu-btn"/>
+
+            <Button fx:id="btnObat" text="💊  Obat"
+                    styleClass="menu-btn"/>
+
+            <Label fx:id="lblTransaksi" text="TRANSAKSI"
+                styleClass="menu-group"/>
+
+            <Button fx:id="btnPendaftaran" text="📝  Pendaftaran Periksa"
+                    styleClass="menu-btn"  onAction="#openPendaftaran" />
+
+            <Button fx:id="btnPemeriksaan" text="🩻  Pemeriksaan Dokter"
+                    styleClass="menu-btn" onAction="#openPemeriksaan"  />
+
+            <Button fx:id="btnRekam" text="📋  Rekam Medis"
+                    styleClass="menu-btn"/>
+
+            <Button fx:id="btnPrediksi" text="🧠  Prediksi ML"
+                    styleClass="menu-btn"/>
+
+            <Label fx:id="lblLaporan" text="LAPORAN"
+                styleClass="menu-group"/>
+
+            <Button text="📊  Hasil&amp;Riwayat"
+                    styleClass="menu-btn"/>
+
+            <Button text="📈  Laporan Klinik"
+                    styleClass="menu-btn"/>
+                    
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Button text="🚪 Logout"
+                    styleClass="logout-btn"/>
+
+        </VBox>
+
+    </ScrollPane>
+
+</left>
+
+    <!-- TOP -->
+    <top>
+
+        <HBox alignment="CENTER_LEFT"
+              spacing="20"
+              styleClass="topbar">
+
+            <VBox spacing="5">
+
+                <Label text="Dashboard"
+                       styleClass="dashboard-title"/>
+
+                <Label text="Selamat Datang di Smart Clinic System"
+                       styleClass="dashboard-subtitle"/>
+
+            </VBox>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <TextField promptText="Cari data pasien..."
+                       prefWidth="250"
+                       styleClass="search-box"/>
+
+        </HBox>
+
+    </top>
+
+    <!-- CENTER -->
+    <center>
+
+        <VBox spacing="25">
+               <padding>
+                <Insets top="25" right="25" bottom="25" left="25"/>
+                </padding>
+
+            <!-- STATISTIC CARD -->
+            <HBox spacing="20">
+
+                <VBox spacing="10"
+                      prefWidth="250"
+                      prefHeight="120"
+                      styleClass="card-blue">
+
+                    <Label text="👨‍⚕ Total Pasien"
+                           styleClass="card-title"/>
+
+                    <Label text="245"
+                           styleClass="card-value"/>
+
+                </VBox>
+
+                <VBox spacing="10"
+                      prefWidth="250"
+                      prefHeight="120"
+                      styleClass="card-green">
+
+                    <Label text="📋 Rekam Medis"
+                           styleClass="card-title"/>
+
+                    <Label text="1,240"
+                           styleClass="card-value"/>
+
+                </VBox>
+
+                <VBox spacing="10"
+                      prefWidth="250"
+                      prefHeight="120"
+                      styleClass="card-orange">
+
+                    <Label text="🧠 Prediksi"
+                           styleClass="card-title"/>
+
+                    <Label text="532"
+                           styleClass="card-value"/>
+
+                </VBox>
+
+                <VBox spacing="10"
+                      prefWidth="250"
+                      prefHeight="120"
+                      styleClass="card-red">
+
+                    <Label text="💊 Obat"
+                           styleClass="card-title"/>
+
+                    <Label text="85"
+                           styleClass="card-value"/>
+
+                </VBox>
+
+            </HBox>
+
+            <!-- TABLE SECTION -->
+            <VBox spacing="15"
+                  styleClass="table-container">
+
+                <Label text="Data Pasien Terbaru"
+                       styleClass="section-title"/>
+
+                <TableView fx:id="tableDashboard"
+                           prefHeight="500">
+
+                    <columns>
+
+                        <TableColumn text="ID"
+                                     prefWidth="80"/>
+
+                        <TableColumn text="Nama"
+                                     prefWidth="220"/>
+
+                        <TableColumn text="Umur"
+                                     prefWidth="120"/>
+
+                        <TableColumn text="Gender"
+                                     prefWidth="180"/>
+
+                        <TableColumn text="Alamat"
+                                     prefWidth="300"/>
+
+                    </columns>
+
+                </TableView>
+
+            </VBox>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>
