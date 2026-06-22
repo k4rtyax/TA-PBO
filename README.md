@@ -1,30 +1,37 @@
 # Smart Clinic - Tugas PBO
 
 ### 1. Setup Project
-**Cek Dependensi**: 
-`java -version` (Cek JRE)
-`javac -version` (Cek JDK)
-`python3 --version` (Cek Python)
 
-1. **Clone Repository**: Buka terminal/VS Code, lalu jalankan:
-   `git clone https://github.com/k4rtyax/TA-PBO.git`
-2. **Setup Database (Linux/LAMPP)**:
-   - Jalankan service LAMPP melalui terminal: `sudo /opt/lampp/lampp start`
-   - Buat database dan import data langsung via terminal (di dalam folder project):
-     `/opt/lampp/bin/mysql -u root -e "CREATE DATABASE IF NOT EXISTS smart_clinic;"`
-     `/opt/lampp/bin/mysql -u root smart_clinic < smartClinic.sql`
+**A. Cek Dependensi:** 
+```bash
+java -version
+javac -version
+python3 --version
+```
+
+**B. Clone & Setup Database (Linux/LAMPP):**
+```bash
+git clone https://github.com/k4rtyax/TA-PBO.git
+cd TA-PBO
+sudo /opt/lampp/lampp start
+/opt/lampp/bin/mysql -u root -e "CREATE DATABASE IF NOT EXISTS smart_clinic;"
+/opt/lampp/bin/mysql -u root smart_clinic < smartClinic.sql
+```
 
 ### 2. Git Workflow
-**A. sebelum mulai ngoding (Tarik update terbaru dari repo):**
-`git pull origin main`
+Agar tidak conflict, gunakan perintah berikut:
 
-**B. selesai ngoding (Upload):**
-1. Masukkan semua perubahan: 
-   `git add .`
-2. Beri pesan/catatan apa yang baru saja dikerjakan:
-   `git commit -m "Deskripsi singkat, contoh: membuat UI form dokter (by:kevin)"`
-3. Upload ke GitHub:
-   `git push origin main`
+**mulai ngoding (Tarik update terbaru):**
+```bash
+git pull origin main
+```
+
+**selesai ngoding (Simpan & Upload):**
+```bash
+git add .
+git commit -m "Update UI Form Dokter (by: kevin)" <-- contoh
+git push origin main
+```
 
 ## Checklist Pengembangan Kelompok
 
