@@ -11,8 +11,10 @@ CREATE TABLE dokter (
     id_dokter INT AUTO_INCREMENT PRIMARY KEY,
     nama VARCHAR(100) NOT NULL,
     spesialis VARCHAR(100),
-    no_hp VARCHAR(20)
+    no_hp VARCHAR(20),
+    alamat TEXT
 );
+
 
 CREATE TABLE pasien (
     id_pasien INT AUTO_INCREMENT PRIMARY KEY,

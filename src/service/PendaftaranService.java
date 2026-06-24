@@ -25,8 +25,7 @@ public class PendaftaranService {
     public ObservableList<Pendaftaran> search(
             String keyword) {
 
-        //return dao.search(keyword);
-        return null;
+        return dao.searchPendaftaran(keyword);
     }
 
     // =========================

@@ -8,6 +8,10 @@
     -fx-background-color: #f8fafc;
 }
 
+.label {
+    -fx-text-fill: #1e293b;
+}
+
 
 /* =================================
    LABEL TITLE

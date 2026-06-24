@@ -5,6 +5,7 @@ public class Dokter extends Person {
     private int idDokter;
     private String spesialis;
     private String noHP;
+    private String alamat;
     // constructor kosong
     public Dokter(){
 
@@ -12,13 +13,15 @@ public class Dokter extends Person {
     public Dokter(int idDokter,
                   String nama,
                   String spesialis,
-                  String noHP) {
+                  String noHP,
+                  String alamat) {
 
         super(nama);
 
         this.idDokter = idDokter;
         this.spesialis = spesialis;
         this.noHP = noHP;
+        this.alamat = alamat;
     }
 
     public int getIdDokter() {
@@ -33,6 +36,10 @@ public class Dokter extends Person {
         return noHP;
     }
 
+    public String getAlamat() {
+        return alamat;
+    }
+
     public void setIdDokter(int idDokter) {
         this.idDokter = idDokter;
     }
@@ -43,6 +50,10 @@ public class Dokter extends Person {
 
     public void setNoHP(String noHP) {
         this.noHP = noHP;
+    }
+
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
     }
 
     public void periksaPasien() {

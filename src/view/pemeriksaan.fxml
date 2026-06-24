@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.PemeriksaanController"
+            stylesheets="@style.css">
+
+    <!-- TOP -->
+    <top>
+        <VBox spacing="10" styleClass="top-panel">
+            <Label text="PEMERIKSAAN DOKTER"
+                   styleClass="title" maxWidth="Infinity"
+                   alignment="CENTER" />
+
+            <!-- TOOLBAR -->
+            <HBox spacing="15" alignment="CENTER">
+                <Button text="➕"
+                        onAction="#handleTambah"
+                        styleClass="btn-tambah"/>
+
+                <Button text="✏"
+                        onAction="#handleEdit"
+                        styleClass="btn-edit"/>
+
+                <Button text="🗑"
+                        onAction="#handleHapus"
+                        styleClass="btn-hapus"/>
+
+                <Button text="🔄"
+                        onAction="#loadData"
+                        styleClass="btn-refresh"/>
+
+                <TextField fx:id="txtCari"
+                           promptText="Cari pemeriksaan..."
+                           prefWidth="180"/>
+
+                <Button text="🔍"
+                        onAction="#handleCari"
+                        styleClass="btn-cari"/>
+
+                <Button text="❌"
+                        onAction="#handleClose"
+                        styleClass="btn-close"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- CENTER -->
+    <center>
+        <VBox spacing="15" styleClass="main-panel">
+            <!-- TABLE -->
+            <TableView fx:id="tablePemeriksaan"
+                       VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colId"
+                                 text="ID" prefWidth="60"/>
+
+                    <TableColumn fx:id="colTanggal"
+                                 text="Tanggal" prefWidth="100"/>
+
+                    <TableColumn fx:id="colPasien"
+                                 text="Pasien" prefWidth="180"/>
+
+                    <TableColumn fx:id="colDokter"
+                                 text="Dokter" prefWidth="180"/>
+
+                    <TableColumn fx:id="colDiagnosa"
+                                 text="Diagnosa" prefWidth="180"/>
+
+                    <TableColumn fx:id="colTekanan"
+                                 text="Tensi" prefWidth="80"/>
+
+                    <TableColumn fx:id="colGula"
+                                 text="Gula" prefWidth="80"/>
+
+                    <TableColumn fx:id="colSuhu"
+                                 text="Suhu" prefWidth="70"/>
+
+                    <TableColumn fx:id="colBerat"
+                                 text="BB" prefWidth="70"/>
+
+                    <TableColumn fx:id="colHasilPrediksi"
+                                 text="Prediksi" prefWidth="140"/>
+
+                    <TableColumn fx:id="colResiko"
+                                 text="Resiko" prefWidth="100"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+
+</BorderPane>

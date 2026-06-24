@@ -75,4 +75,9 @@ public class Pendaftaran {
     public String getNamaDokter() {
         return dokter != null ? dokter.getNama() : "";
     }
+
+    @Override
+    public String toString() {
+        return "ID: " + idDaftar + " | " + getNamaPasien() + " (Dr. " + getNamaDokter() + ")";
+    }
 }

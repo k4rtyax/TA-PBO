@@ -4,6 +4,10 @@
     -fx-background-color: #f5f7fa;
 }
 
+.label {
+    -fx-text-fill: #1e293b;
+}
+
 .title{
 
     -fx-font-size: 24px;

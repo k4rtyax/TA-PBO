@@ -49,10 +49,10 @@
                     styleClass="menu-btn" onAction="#openDokter" />
 
             <Button fx:id="btnPetugas" text="👩‍💼  Petugas"
-                    styleClass="menu-btn"/>
+                    styleClass="menu-btn" onAction="#openPetugas"/>
 
             <Button fx:id="btnObat" text="💊  Obat"
-                    styleClass="menu-btn"/>
+                    styleClass="menu-btn" onAction="#openObat"/>
 
             <Label fx:id="lblTransaksi" text="TRANSAKSI"
                 styleClass="menu-group"/>
@@ -64,7 +64,7 @@
                     styleClass="menu-btn" onAction="#openPemeriksaan"  />
 
             <Button fx:id="btnRekam" text="📋  Rekam Medis"
-                    styleClass="menu-btn"/>
+                    styleClass="menu-btn" onAction="#openRekam"/>
 
             <Button fx:id="btnPrediksi" text="🧠  Prediksi ML"
                     styleClass="menu-btn"
@@ -136,7 +136,8 @@
                     <Label text="👨‍⚕ Total Pasien"
                            styleClass="card-title"/>
 
-                    <Label text="245"
+                    <Label fx:id="lblTotalPasien"
+                           text="0"
                            styleClass="card-value"/>
 
                 </VBox>
@@ -149,7 +150,8 @@
                     <Label text="📋 Rekam Medis"
                            styleClass="card-title"/>
 
-                    <Label text="1,240"
+                    <Label fx:id="lblTotalRekam"
+                           text="0"
                            styleClass="card-value"/>
 
                 </VBox>
@@ -162,7 +164,8 @@
                     <Label text="🧠 Prediksi"
                            styleClass="card-title"/>
 
-                    <Label text="532"
+                    <Label fx:id="lblTotalPrediksi"
+                           text="0"
                            styleClass="card-value"/>
 
                 </VBox>
@@ -175,7 +178,8 @@
                     <Label text="💊 Obat"
                            styleClass="card-title"/>
 
-                    <Label text="85"
+                    <Label fx:id="lblTotalObat"
+                           text="0"
                            styleClass="card-value"/>
 
                 </VBox>
@@ -194,19 +198,24 @@
 
                     <columns>
 
-                        <TableColumn text="ID"
+                        <TableColumn fx:id="colId"
+                                     text="ID"
                                      prefWidth="80"/>
 
-                        <TableColumn text="Nama"
+                        <TableColumn fx:id="colNama"
+                                     text="Nama"
                                      prefWidth="220"/>
 
-                        <TableColumn text="Umur"
+                        <TableColumn fx:id="colUmur"
+                                     text="Umur"
                                      prefWidth="120"/>
 
-                        <TableColumn text="Gender"
+                        <TableColumn fx:id="colGender"
+                                     text="Gender"
                                      prefWidth="180"/>
 
-                        <TableColumn text="Alamat"
+                        <TableColumn fx:id="colAlamat"
+                                     text="Alamat"
                                      prefWidth="300"/>
 
                     </columns>

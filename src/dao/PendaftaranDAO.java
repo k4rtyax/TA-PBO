@@ -232,33 +232,46 @@ public class PendaftaranDAO {
             e.printStackTrace();
         }
     }
-   // SEARCH
-    public ObservableList<Pasien> search(String keyword){
-
-        ObservableList<Pasien> list = FXCollections.observableArrayList();
-
-        try{
-
-            String sql =
-                    "SELECT * FROM pendaftaran WHERE  id_daftar LIKE ?";
-
-            PreparedStatement ps =
-                    conn.prepareStatement(sql);
-
-            ps.setString(1, "%" + keyword + "%");
-
+    // SEARCH
+    public ObservableList<Pendaftaran> searchPendaftaran(String keyword) {
+        ObservableList<Pendaftaran> list = FXCollections.observableArrayList();
+        String sql = """
+                SELECT p.*,
+                       ps.nama AS nama_pasien,
+                       d.nama AS nama_dokter
+                FROM pendaftaran p
+                JOIN pasien ps ON p.id_pasien = ps.id_pasien
+                JOIN dokter d ON p.id_dokter = d.id_dokter
+                WHERE ps.nama LIKE ? OR d.nama LIKE ? OR p.keluhan LIKE ?
+                """;
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            String searchStr = "%" + keyword + "%";
+            ps.setString(1, searchStr);
+            ps.setString(2, searchStr);
+            ps.setString(3, searchStr);
             ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Pasien pasien = new Pasien();
+                pasien.setIdPasien(rs.getInt("id_pasien"));
+                pasien.setNama(rs.getString("nama_pasien"));
 
-            while(rs.next()){
+                Dokter dokter = new Dokter();
+                dokter.setIdDokter(rs.getInt("id_dokter"));
+                dokter.setNama(rs.getString("nama_dokter"));
 
-                //list.add( new pendaftaran() );
+                Pendaftaran p = new Pendaftaran(
+                        rs.getInt("id_daftar"),
+                        rs.getDate("tanggal"),
+                        rs.getString("keluhan"),
+                        pasien,
+                        dokter
+                );
+                list.add(p);
             }
-
-        }catch(Exception e){
-
+        } catch (Exception e) {
             e.printStackTrace();
         }
-
         return list;
     }
 

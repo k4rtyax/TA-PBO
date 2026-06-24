@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.FormDokterController"
+            stylesheets="@style.css">
+
+    <!-- TITLE -->
+    <top>
+        <VBox alignment="CENTER"
+              spacing="15"
+              styleClass="top-panel">
+            <padding>
+                <Insets top="20"
+                        right="20"
+                        bottom="10"
+                        left="20"/>
+            </padding>
+            <Label text="FORM DATA DOKTER"
+                   styleClass="title"/>
+        </VBox>
+    </top>
+
+    <!-- CONTENT -->
+    <center>
+        <VBox alignment="CENTER"
+              spacing="25">
+            <padding>
+                <Insets top="10"
+                        right="30"
+                        bottom="20"
+                        left="30"/>
+            </padding>
+
+            <GridPane alignment="CENTER"
+                      hgap="20"
+                      vgap="18">
+
+                <!-- COLUMN WIDTH -->
+                <columnConstraints>
+                    <ColumnConstraints minWidth="120"/>
+                    <ColumnConstraints minWidth="220"/>
+                    <ColumnConstraints minWidth="120"/>
+                    <ColumnConstraints minWidth="220"/>
+                </columnConstraints>
+
+                <!-- ROW 1 -->
+                <Label text="ID Dokter"/>
+                <TextField fx:id="txtId"
+                           editable="false"
+                           prefWidth="220"
+                           GridPane.columnIndex="1"/>
+
+                <Label text="Spesialis"
+                       GridPane.columnIndex="2"/>
+                <TextField fx:id="txtSpesialis"
+                           prefWidth="220"
+                           GridPane.columnIndex="3"/>
+
+                <!-- ROW 2 -->
+                <Label text="Nama Dokter"
+                       GridPane.rowIndex="1"/>
+                <TextField fx:id="txtNama"
+                           prefWidth="220"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="1"/>
+
+                <Label text="No HP"
+                       GridPane.columnIndex="2"
+                       GridPane.rowIndex="1"/>
+                <TextField fx:id="txtHP"
+                           prefWidth="220"
+                           GridPane.columnIndex="3"
+                           GridPane.rowIndex="1"/>
+
+                <!-- ROW 3 -->
+                <Label text="Alamat"
+                       GridPane.rowIndex="2"/>
+                <TextField fx:id="txtAlamat"
+                           prefWidth="220"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="2"
+                           GridPane.columnSpan="3"/>
+
+            </GridPane>
+
+            <!-- BUTTON -->
+            <HBox alignment="CENTER"
+                  spacing="20">
+                <Button text="💾 Simpan"
+                        fx:id="btnSimpan"
+                        onAction="#handleSimpan"
+                        styleClass="btn-save"
+                        prefWidth="120"
+                        prefHeight="40"/>
+
+                <Button text="✖ Batal"
+                        onAction="#handleBatal"
+                        styleClass="btn-cancel"
+                        prefWidth="120"
+                        prefHeight="40"/>
+            </HBox>
+        </VBox>
+    </center>
+
+</BorderPane>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.PendaftaranController"
+            stylesheets="@style.css">
+
+    <!-- TOP -->
+    <top>
+        <VBox spacing="10" styleClass="top-panel">
+            <Label text="PENDAFTARAN PERIKSA"
+                   styleClass="title" maxWidth="Infinity"
+                   alignment="CENTER" />
+
+            <!-- TOOLBAR -->
+            <HBox spacing="15" alignment="CENTER">
+                <Button text="➕"
+                        onAction="#handleTambah"
+                        styleClass="btn-tambah"/>
+
+                <Button text="✏"
+                        onAction="#handleEdit"
+                        styleClass="btn-edit"/>
+
+                <Button text="🗑"
+                        onAction="#handleHapus"
+                        styleClass="btn-hapus"/>
+
+                <Button text="🔄"
+                        onAction="#loadData"
+                        styleClass="btn-refresh"/>
+
+                <TextField fx:id="txtCari"
+                           promptText="Cari pendaftaran..."
+                           prefWidth="180"/>
+
+                <Button text="🔍"
+                        onAction="#handleCari"
+                        styleClass="btn-cari"/>
+
+                <Button text="❌"
+                        onAction="#handleClose"
+                        styleClass="btn-close"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- CENTER -->
+    <center>
+        <VBox spacing="15" styleClass="main-panel">
+            <!-- TABLE -->
+            <TableView fx:id="tablePendaftaran"
+                       VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colId"
+                                 text="ID" prefWidth="80"/>
+
+                    <TableColumn fx:id="colTanggal"
+                                 text="Tanggal" prefWidth="120"/>
+
+                    <TableColumn fx:id="colPasien"
+                                 text="Nama Pasien" prefWidth="220"/>
+
+                    <TableColumn fx:id="colDokter"
+                                 text="Nama Dokter" prefWidth="220"/>
+
+                    <TableColumn fx:id="colKeluhan"
+                                 text="Keluhan" prefWidth="350"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+
+</BorderPane>

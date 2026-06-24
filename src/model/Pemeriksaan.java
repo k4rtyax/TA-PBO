@@ -132,4 +132,9 @@ public class Pemeriksaan {
                 ? pendaftaran.getKeluhan()
                 : "";
     }
+
+    @Override
+    public String toString() {
+        return "ID Periksa: " + idPeriksa + " | Pasien: " + getNamaPasien() + " (Diagnosa: " + diagnosa + ")";
+    }
 }

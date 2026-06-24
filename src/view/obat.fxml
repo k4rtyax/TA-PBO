@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.ObatController"
+            stylesheets="@style.css">
+
+    <!-- TOP -->
+    <top>
+        <VBox spacing="10" styleClass="top-panel">
+            <Label text="DATA OBAT SMART CLINIC"
+                   styleClass="title" maxWidth="Infinity"
+                   alignment="CENTER" />
+
+            <!-- TOOLBAR -->
+            <HBox spacing="15" alignment="CENTER">
+                <Button text="➕"
+                        onAction="#handleTambah"
+                        styleClass="btn-tambah"/>
+
+                <Button text="✏"
+                        onAction="#handleEdit"
+                        styleClass="btn-edit"/>
+
+                <Button text="🗑"
+                        onAction="#handleHapus"
+                        styleClass="btn-hapus"/>
+
+                <Button text="🔄"
+                        onAction="#loadData"
+                        styleClass="btn-refresh"/>
+
+                <TextField fx:id="txtCari"
+                           promptText="Cari obat..."
+                           prefWidth="180"/>
+
+                <Button text="🔍"
+                        onAction="#handleCari"
+                        styleClass="btn-cari"/>
+
+                <Button text="❌"
+                        onAction="#handleClose"
+                        styleClass="btn-close"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- CENTER -->
+    <center>
+        <VBox spacing="15" styleClass="main-panel">
+            <!-- TABLE -->
+            <TableView fx:id="tableObat"
+                       VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colId"
+                                 text="ID Obat" prefWidth="100"/>
+
+                    <TableColumn fx:id="colNama"
+                                 text="Nama Obat" prefWidth="300"/>
+
+                    <TableColumn fx:id="colStok"
+                                 text="Stok" prefWidth="150"/>
+
+                    <TableColumn fx:id="colHarga"
+                                 text="Harga" prefWidth="200"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+
+</BorderPane>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.DokterController"
+            stylesheets="@style.css">
+
+    <!-- TOP -->
+    <top>
+        <VBox spacing="10" styleClass="top-panel">
+            <Label text="DATA DOKTER SMART CLINIC"
+                   styleClass="title" maxWidth="Infinity"
+                   alignment="CENTER" />
+
+            <!-- TOOLBAR -->
+            <HBox spacing="15" alignment="CENTER">
+                <Button text="➕"
+                        onAction="#handleTambah"
+                        styleClass="btn-tambah"/>
+
+                <Button text="✏"
+                        onAction="#handleEdit"
+                        styleClass="btn-edit"/>
+
+                <Button text="🗑"
+                        onAction="#handleHapus"
+                        styleClass="btn-hapus"/>
+
+                <Button text="🔄"
+                        onAction="#loadData"
+                        styleClass="btn-refresh"/>
+
+                <TextField fx:id="txtCari"
+                           promptText="Cari dokter..."
+                           prefWidth="180"/>
+
+                <Button text="🔍"
+                        onAction="#handleCari"
+                        styleClass="btn-cari"/>
+
+                <Button text="❌"
+                        onAction="#handleClose"
+                        styleClass="btn-close"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- CENTER -->
+    <center>
+        <VBox spacing="15" styleClass="main-panel">
+            <!-- TABLE -->
+            <TableView fx:id="tableDokter"
+                       VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colId"
+                                 text="ID" prefWidth="80"/>
+
+                    <TableColumn fx:id="colNama"
+                                 text="Nama Dokter" prefWidth="250"/>
+
+                    <TableColumn fx:id="colSpesialis"
+                                 text="Spesialis" prefWidth="200"/>
+
+                    <TableColumn fx:id="colHP"
+                                 text="No HP" prefWidth="180"/>
+
+                    <TableColumn fx:id="colAlamat"
+                                 text="Alamat" prefWidth="300"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+
+</BorderPane>

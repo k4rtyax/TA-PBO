@@ -7,12 +7,20 @@ public class DBConnection {
         try {
             // LOAD DRIVER
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn =
-                DriverManager.getConnection(
+            Connection conn = null;
+            try {
+                conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/smart_clinic",
+                    "root",
+                    "northernass123"
+                );
+            } catch (Exception e) {
+                conn = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/smart_clinic",
                     "root",
                     ""
                 );
+            }
             System.out.println("Koneksi berhasil!");
             return conn;
         } catch (Exception e) {

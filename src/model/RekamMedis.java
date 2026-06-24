@@ -47,4 +47,17 @@ public class RekamMedis {
     public void setRingkasan(String ringkasan) {
         this.ringkasan = ringkasan;
     }
+
+    // Helper methods for TableView
+    public String getNamaPasien() {
+        return pemeriksaan != null ? pemeriksaan.getNamaPasien() : "";
+    }
+
+    public String getNamaDokter() {
+        return pemeriksaan != null ? pemeriksaan.getNamaDokter() : "";
+    }
+
+    public String getDiagnosa() {
+        return pemeriksaan != null ? pemeriksaan.getDiagnosa() : "";
+    }
 }
