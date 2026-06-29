@@ -1,0 +1,100 @@
+<mxGraphModel dx="1200" dy="800" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+  <root>
+    <mxCell id="0"/>
+    <mxCell id="1" parent="0"/>
+
+    <!-- ==================== ACTORS ==================== -->
+    <!-- Admin -->
+    <mxCell id="a1" value="Admin" style="shape=mxgraph.uml.actor;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="60" y="340" width="50" height="90" as="geometry"/>
+    </mxCell>
+    <!-- Petugas -->
+    <mxCell id="a2" value="Petugas" style="shape=mxgraph.uml.actor;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="60" y="620" width="50" height="90" as="geometry"/>
+    </mxCell>
+    <!-- Dokter -->
+    <mxCell id="a3" value="Dokter" style="shape=mxgraph.uml.actor;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="1150" y="500" width="50" height="90" as="geometry"/>
+    </mxCell>
+
+    <!-- ==================== SYSTEM BOUNDARY ==================== -->
+    <mxCell id="sys" value="&lt;b&gt;Smart Clinic System&lt;/b&gt;" style="text;html=1;strokeColor=#666666;fillColor=none;align=center;verticalAlign=top;spacingTop=4;fontSize=15;fontStyle=1;dashed=1;dashPattern=8 4;perimeter=rectanglePerimeter;" vertex="1" parent="1">
+      <mxGeometry x="200" y="40" width="880" height="960" as="geometry"/>
+    </mxCell>
+
+    <!-- ==================== USE CASES ==================== -->
+    <!-- Autentikasi -->
+    <mxCell id="uc1" value="Login" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=13;" vertex="1" parent="1">
+      <mxGeometry x="330" y="80" width="160" height="50" as="geometry"/>
+    </mxCell>
+    <mxCell id="uc2" value="Logout" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=13;" vertex="1" parent="1">
+      <mxGeometry x="790" y="80" width="160" height="50" as="geometry"/>
+    </mxCell>
+
+    <!-- Master Data -->
+    <mxCell id="uc3" value="Kelola Pasien (CRUD)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" vertex="1" parent="1">
+      <mxGeometry x="280" y="200" width="200" height="50" as="geometry"/>
+    </mxCell>
+    <mxCell id="uc4" value="Kelola Dokter (CRUD)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" vertex="1" parent="1">
+      <mxGeometry x="800" y="200" width="200" height="50" as="geometry"/>
+    </mxCell>
+    <mxCell id="uc5" value="Kelola Petugas / User (CRUD)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" vertex="1" parent="1">
+      <mxGeometry x="280" y="310" width="220" height="50" as="geometry"/>
+    </mxCell>
+    <mxCell id="uc6" value="Kelola Obat (CRUD)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" vertex="1" parent="1">
+      <mxGeometry x="800" y="310" width="200" height="50" as="geometry"/>
+    </mxCell>
+
+    <!-- Transaksi -->
+    <mxCell id="uc7" value="Pendaftaran Periksa" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" vertex="1" parent="1">
+      <mxGeometry x="280" y="450" width="200" height="50" as="geometry"/>
+    </mxCell>
+    <mxCell id="uc8" value="Pemeriksaan Dokter" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" vertex="1" parent="1">
+      <mxGeometry x="800" y="450" width="200" height="50" as="geometry"/>
+    </mxCell>
+    <mxCell id="uc9" value="Rekam Medis" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" vertex="1" parent="1">
+      <mxGeometry x="280" y="560" width="200" height="50" as="geometry"/>
+    </mxCell>
+    <mxCell id="uc10" value="Resep Obat" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" vertex="1" parent="1">
+      <mxGeometry x="800" y="560" width="200" height="50" as="geometry"/>
+    </mxCell>
+
+    <!-- Prediksi -->
+    <mxCell id="uc11" value="Prediksi Risiko Diabetes (ML)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=13;" vertex="1" parent="1">
+      <mxGeometry x="540" y="720" width="220" height="55" as="geometry"/>
+    </mxCell>
+
+    <!-- ==================== ADMIN EDGES ==================== -->
+    <mxCell id="e1" edge="1" source="a1" target="uc1" parent="1" style="endArrow=open;endFill=0;"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="e2" edge="1" source="a1" target="uc2" parent="1" style="endArrow=open;endFill=0;"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="e3" edge="1" source="a1" target="uc3" parent="1" style="endArrow=open;endFill=0;"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="e4" edge="1" source="a1" target="uc4" parent="1" style="endArrow=open;endFill=0;"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="e5" edge="1" source="a1" target="uc5" parent="1" style="endArrow=open;endFill=0;"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="e6" edge="1" source="a1" target="uc6" parent="1" style="endArrow=open;endFill=0;"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="e7" edge="1" source="a1" target="uc7" parent="1" style="endArrow=open;endFill=0;"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="e8" edge="1" source="a1" target="uc8" parent="1" style="endArrow=open;endFill=0;"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="e9" edge="1" source="a1" target="uc9" parent="1" style="endArrow=open;endFill=0;"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="e10" edge="1" source="a1" target="uc10" parent="1" style="endArrow=open;endFill=0;"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="e11" edge="1" source="a1" target="uc11" parent="1" style="endArrow=open;endFill=0;"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+    <!-- ==================== PETUGAS EDGES ==================== -->
+    <mxCell id="f1" edge="1" source="a2" target="uc1" parent="1" style="endArrow=open;endFill=0;strokeColor=#82b366;"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="f2" edge="1" source="a2" target="uc2" parent="1" style="endArrow=open;endFill=0;strokeColor=#82b366;"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="f3" edge="1" source="a2" target="uc3" parent="1" style="endArrow=open;endFill=0;strokeColor=#82b366;"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="f4" edge="1" source="a2" target="uc7" parent="1" style="endArrow=open;endFill=0;strokeColor=#82b366;"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+    <!-- ==================== DOKTER EDGES ==================== -->
+    <mxCell id="g1" edge="1" source="a3" target="uc1" parent="1" style="endArrow=open;endFill=0;strokeColor=#d6b656;"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="g2" edge="1" source="a3" target="uc2" parent="1" style="endArrow=open;endFill=0;strokeColor=#d6b656;"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="g3" edge="1" source="a3" target="uc6" parent="1" style="endArrow=open;endFill=0;strokeColor=#d6b656;"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="g4" edge="1" source="a3" target="uc8" parent="1" style="endArrow=open;endFill=0;strokeColor=#d6b656;"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="g5" edge="1" source="a3" target="uc9" parent="1" style="endArrow=open;endFill=0;strokeColor=#d6b656;"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="g6" edge="1" source="a3" target="uc10" parent="1" style="endArrow=open;endFill=0;strokeColor=#d6b656;"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="g7" edge="1" source="a3" target="uc11" parent="1" style="endArrow=open;endFill=0;strokeColor=#d6b656;"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+    <!-- ==================== LEGEND ==================== -->
+    <mxCell id="leg" value="&lt;b&gt;Legenda:&lt;/b&gt;&lt;br&gt;🔵 Admin&amp;nbsp;&amp;nbsp;🟢 Petugas&amp;nbsp;&amp;nbsp;🟠 Dokter" style="text;html=1;strokeColor=none;fillColor=#f5f5f5;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="220" y="870" width="320" height="40" as="geometry"/>
+    </mxCell>
+  </root>
+</mxGraphModel>
