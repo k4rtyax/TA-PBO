@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<ScrollPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.LoginController"
+            stylesheets="@../style/global.css"
+            fitToWidth="true"
+            fitToHeight="true"
+            hbarPolicy="NEVER"
+            vbarPolicy="AS_NEEDED"
+            style="-fx-background-color: linear-gradient(to bottom right, #1e3a5f, #2563eb, #1e40af);
+                   -fx-background: linear-gradient(to bottom right, #1e3a5f, #2563eb, #1e40af);">
+
+    <StackPane style="-fx-background-color: linear-gradient(to bottom right, #1e3a5f, #2563eb, #1e40af);"
+               minHeight="620">
+
+        <VBox alignment="CENTER" spacing="0"
+              maxWidth="420" minWidth="340"
+              style="-fx-background-color: white;
+                     -fx-background-radius: 24;
+                     -fx-padding: 48 40 40 40;
+                     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.30), 40, 0, 0, 12);">
+
+            <StackPane.margin>
+                <Insets top="40" bottom="40"/>
+            </StackPane.margin>
+
+            <!-- ICON -->
+            <Label text="🏥" style="-fx-font-size: 52px;" alignment="CENTER"/>
+
+            <!-- APP TITLE -->
+            <Label text="SMART CLINIC"
+                   style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #1e3a8a; -fx-letter-spacing: 2px;"
+                   alignment="CENTER" maxWidth="Infinity">
+                <VBox.margin><Insets top="4"/></VBox.margin>
+            </Label>
+            <Label text="Sistem Manajemen Klinik"
+                   style="-fx-font-size: 13px; -fx-text-fill: #94a3b8;"
+                   alignment="CENTER" maxWidth="Infinity"/>
+
+            <!-- DIVIDER -->
+            <Separator style="-fx-opacity: 0.3;">
+                <VBox.margin><Insets top="24" bottom="24"/></VBox.margin>
+            </Separator>
+
+            <!-- USERNAME -->
+            <Label text="Username"
+                   style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #374151;">
+                <VBox.margin><Insets bottom="6"/></VBox.margin>
+            </Label>
+            <TextField fx:id="txtUsername" promptText="Masukkan username..."
+                       maxWidth="Infinity">
+                <VBox.margin><Insets bottom="18"/></VBox.margin>
+            </TextField>
+
+            <!-- PASSWORD -->
+            <Label text="Password"
+                   style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #374151;">
+                <VBox.margin><Insets bottom="6"/></VBox.margin>
+            </Label>
+            <PasswordField fx:id="txtPassword" promptText="Masukkan password..."
+                           maxWidth="Infinity">
+                <VBox.margin><Insets bottom="10"/></VBox.margin>
+            </PasswordField>
+
+            <!-- ERROR LABEL -->
+            <Label fx:id="lblError" text=""
+                   style="-fx-text-fill: #ef4444; -fx-font-size: 12px;"
+                   wrapText="true" alignment="CENTER" maxWidth="Infinity">
+                <VBox.margin><Insets bottom="16"/></VBox.margin>
+            </Label>
+
+            <!-- LOGIN BUTTON -->
+            <Button fx:id="btnLogin" text="🔐  Masuk"
+                    maxWidth="Infinity"
+                    onAction="#handleLogin"
+                    style="-fx-background-color: linear-gradient(to right, #2563eb, #1e40af);
+                           -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 15px;
+                           -fx-background-radius: 30; -fx-cursor: hand; -fx-padding: 13 0;
+                           -fx-effect: dropshadow(gaussian, rgba(37,99,235,0.4), 12, 0, 0, 4);"/>
+
+            <!-- FOOTER -->
+            <Label text="© 2025 Smart Clinic – Tugas Akhir PBO"
+                   style="-fx-font-size: 11px; -fx-text-fill: #cbd5e1;" alignment="CENTER" maxWidth="Infinity">
+                <VBox.margin><Insets top="24"/></VBox.margin>
+            </Label>
+
+        </VBox>
+    </StackPane>
+</ScrollPane>

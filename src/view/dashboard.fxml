@@ -82,7 +82,8 @@
             <Region VBox.vgrow="ALWAYS"/>
 
             <Button text="🚪 Logout"
-                    styleClass="logout-btn"/>
+                    styleClass="logout-btn"
+                    onAction="#handleLogout"/>
 
         </VBox>
 
@@ -109,6 +110,8 @@
 
             <Region HBox.hgrow="ALWAYS"/>
 
+            <Label fx:id="lblUserInfo" text=""
+                   style="-fx-text-fill: #64748b; -fx-font-size: 13px;"/>
             <TextField promptText="Cari data pasien..."
                        prefWidth="250"
                        styleClass="search-box"/>

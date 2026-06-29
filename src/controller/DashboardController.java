@@ -1,15 +1,20 @@
 package controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import model.Pasien;
+import model.User;
 import service.PasienService;
 import util.SceneUtil;
+import util.SessionUtil;
 import database.DBConnection;
 
 import java.sql.Connection;
@@ -38,6 +43,9 @@ public class DashboardController {
     private Label lblTotalPrediksi;
     @FXML
     private Label lblTotalObat;
+
+    @FXML
+    private Label lblUserInfo;
 
     @FXML
     private TableView<Pasien> tableDashboard;
@@ -181,5 +189,85 @@ public class DashboardController {
     @FXML
     private void openPrediksi() {
         SceneUtil.openMaximizedWindow("/view/prediksi.fxml", "Prediksi Risiko Diabetes");
+    }
+
+    // ==============================================
+    // ROLE-BASED ACCESS CONTROL
+    // ==============================================
+    /**
+     * Dipanggil oleh LoginController setelah login berhasil.
+     * Menyembunyikan / menampilkan menu sesuai role.
+     *
+     * Role ID:
+     *   1 = Admin    -> semua menu tampil
+     *   2 = Petugas  -> Pasien, Pendaftaran (TANPA: Dokter, Petugas, Obat, Pemeriksaan, Rekam, Prediksi)
+     *   3 = Dokter   -> Obat, Pemeriksaan, Rekam Medis, Prediksi (TANPA: Pasien, Dokter, Petugas, Pendaftaran)
+     */
+    public void applyRoleAccess(User user) {
+        if (user == null) return;
+
+        // Tampilkan info user di topbar
+        if (lblUserInfo != null) {
+            lblUserInfo.setText("👤 " + user.getNama() + "  |  " + user.getRoleName());
+        }
+
+        String role = user.getRoleName();
+
+        switch (role) {
+            case "Admin" -> {
+                // Admin: semua menu tampil – tidak perlu menyembunyikan apapun
+            }
+            case "Petugas" -> {
+                // Petugas: hanya Pasien + Pendaftaran
+                btnDokter.setVisible(false);   btnDokter.setManaged(false);
+                btnPetugas.setVisible(false);  btnPetugas.setManaged(false);
+                btnObat.setVisible(false);     btnObat.setManaged(false);
+                btnPemeriksaan.setVisible(false); btnPemeriksaan.setManaged(false);
+                btnRekam.setVisible(false);    btnRekam.setManaged(false);
+                btnPrediksi.setVisible(false); btnPrediksi.setManaged(false);
+            }
+            case "Dokter" -> {
+                // Dokter: hanya Obat + Pemeriksaan + Rekam + Prediksi
+                btnPasien.setVisible(false);   btnPasien.setManaged(false);
+                btnDokter.setVisible(false);   btnDokter.setManaged(false);
+                btnPetugas.setVisible(false);  btnPetugas.setManaged(false);
+                btnPendaftaran.setVisible(false); btnPendaftaran.setManaged(false);
+            }
+            default -> {
+                // Role tidak dikenal – sembunyikan semua sebagai keamanan
+                btnPasien.setVisible(false);   btnPasien.setManaged(false);
+                btnDokter.setVisible(false);   btnDokter.setManaged(false);
+                btnPetugas.setVisible(false);  btnPetugas.setManaged(false);
+                btnObat.setVisible(false);     btnObat.setManaged(false);
+                btnPendaftaran.setVisible(false); btnPendaftaran.setManaged(false);
+                btnPemeriksaan.setVisible(false); btnPemeriksaan.setManaged(false);
+                btnRekam.setVisible(false);    btnRekam.setManaged(false);
+                btnPrediksi.setVisible(false); btnPrediksi.setManaged(false);
+            }
+        }
+    }
+
+    // ==============================================
+    // LOGOUT
+    // ==============================================
+    @FXML
+    private void handleLogout() {
+        try {
+            SessionUtil.clearSession();
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/login.fxml"));
+            Scene scene = new Scene(loader.load());
+            scene.getStylesheets().add(getClass().getResource("/style/global.css").toExternalForm());
+
+            Stage stage = (Stage) sidebar.getScene().getWindow();
+            stage.setScene(scene);
+            stage.setMaximized(false);
+            stage.setWidth(480);
+            stage.setHeight(620);
+            stage.centerOnScreen();
+            stage.setTitle("Smart Clinic – Login");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

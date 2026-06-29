@@ -93,6 +93,37 @@ public class UserDAO {
         }
     }
 
+    // LOGIN - Cari user berdasarkan username dan password
+    public User findByCredentials(String username, String password) {
+        String sql = """
+                SELECT u.*, r.nama_role
+                FROM users u
+                LEFT JOIN roles r ON u.id_role = r.id_role
+                WHERE u.username = ? AND u.password = ?
+                """;
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, username);
+            ps.setString(2, password);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                User u = new User(
+                        rs.getInt("id_user"),
+                        rs.getString("nama"),
+                        rs.getString("username"),
+                        rs.getString("password"),
+                        rs.getInt("id_role"),
+                        rs.getObject("id_dokter") != null ? rs.getInt("id_dokter") : null
+                );
+                u.setRoleName(rs.getString("nama_role"));
+                return u;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null; // null = credentials salah
+    }
+
     // SEARCH
     public ObservableList<User> searchUsers(String keyword) {
         ObservableList<User> list = FXCollections.observableArrayList();
