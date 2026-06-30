@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -33,6 +34,8 @@ public class DashboardController {
     private Label lblMaster, lblTransaksi, lblLaporan;
     @FXML
     private Button btnPendaftaran, btnPemeriksaan, btnRekam, btnPrediksi;
+    @FXML
+    private Button btnPoli, btnJadwal, btnResepObat;
 
     // DASHBOARD DYNAMIC ELEMENTS
     @FXML
@@ -105,8 +108,6 @@ public class DashboardController {
                 if (rs.next()) {
                     lblTotalObat.setText(String.valueOf(rs.getInt(1)));
                 }
-                
-                conn.close();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -121,15 +122,7 @@ public class DashboardController {
             lblMaster.setVisible(false);
             lblTransaksi.setVisible(false);
             lblLaporan.setVisible(false);
-            btnDashboard.setText("🏠");
-            btnPasien.setText("👨");
-            btnDokter.setText("🩺");
-            btnPetugas.setText("👩");
-            btnObat.setText("💊");
-            btnPendaftaran.setText("📝");
-            btnPemeriksaan.setText("🩻");
-            btnRekam.setText("📋");
-            btnPrediksi.setText("🧠");
+            setSidebarButtonsContentDisplay(ContentDisplay.GRAPHIC_ONLY);
             collapsed = true;
         } else {
             sidebar.setPrefWidth(240);
@@ -138,17 +131,24 @@ public class DashboardController {
             lblTransaksi.setVisible(true);
             lblLaporan.setVisible(true);
             logoTitle.setText("SMART CLINIC");
-            btnDashboard.setText("🏠 Dashboard");
-            btnPasien.setText("👨‍⚕ Pasien");
-            btnDokter.setText("🩺 Dokter");
-            btnPetugas.setText("👩‍💼 Petugas");
-            btnObat.setText("💊 Obat");
-            btnPendaftaran.setText("📝 Pendaftaran");
-            btnPemeriksaan.setText("🩻 Pemeriksaan");
-            btnRekam.setText("📋 Rekam Medis");
-            btnPrediksi.setText("🧠 Prediksi ML");
+            setSidebarButtonsContentDisplay(ContentDisplay.LEFT);
             collapsed = false;
         }
+    }
+
+    private void setSidebarButtonsContentDisplay(ContentDisplay mode) {
+        btnDashboard.setContentDisplay(mode);
+        btnPasien.setContentDisplay(mode);
+        btnDokter.setContentDisplay(mode);
+        btnPetugas.setContentDisplay(mode);
+        btnObat.setContentDisplay(mode);
+        btnPoli.setContentDisplay(mode);
+        btnJadwal.setContentDisplay(mode);
+        btnPendaftaran.setContentDisplay(mode);
+        btnPemeriksaan.setContentDisplay(mode);
+        btnResepObat.setContentDisplay(mode);
+        btnRekam.setContentDisplay(mode);
+        btnPrediksi.setContentDisplay(mode);
     }
 
     @FXML
@@ -191,6 +191,21 @@ public class DashboardController {
         SceneUtil.openMaximizedWindow("/view/prediksi.fxml", "Prediksi Risiko Diabetes");
     }
 
+    @FXML
+    private void openPoli() {
+        SceneUtil.openMaximizedWindow("/view/poli.fxml", "Data Poli");
+    }
+
+    @FXML
+    private void openJadwal() {
+        SceneUtil.openMaximizedWindow("/view/jadwal.fxml", "Jadwal Dokter");
+    }
+
+    @FXML
+    private void openResepObat() {
+        SceneUtil.openMaximizedWindow("/view/resep_obat.fxml", "Resep Obat");
+    }
+
     // ==============================================
     // ROLE-BASED ACCESS CONTROL
     // ==============================================
@@ -208,10 +223,15 @@ public class DashboardController {
 
         // Tampilkan info user di topbar
         if (lblUserInfo != null) {
-            lblUserInfo.setText("👤 " + user.getNama() + "  |  " + user.getRoleName());
+            Label iconLabel = new Label("");
+            iconLabel.getStyleClass().add("icon-mi");
+            lblUserInfo.setGraphic(iconLabel);
+            lblUserInfo.setContentDisplay(ContentDisplay.LEFT);
+            lblUserInfo.setText(user.getNama() + "  |  " + user.getRoleName());
         }
 
         String role = user.getRoleName();
+        if (role == null) role = "";
 
         switch (role) {
             case "Admin" -> {
@@ -222,15 +242,20 @@ public class DashboardController {
                 btnDokter.setVisible(false);   btnDokter.setManaged(false);
                 btnPetugas.setVisible(false);  btnPetugas.setManaged(false);
                 btnObat.setVisible(false);     btnObat.setManaged(false);
+                btnPoli.setVisible(false);     btnPoli.setManaged(false);
+                btnJadwal.setVisible(false);   btnJadwal.setManaged(false);
                 btnPemeriksaan.setVisible(false); btnPemeriksaan.setManaged(false);
+                btnResepObat.setVisible(false); btnResepObat.setManaged(false);
                 btnRekam.setVisible(false);    btnRekam.setManaged(false);
                 btnPrediksi.setVisible(false); btnPrediksi.setManaged(false);
             }
             case "Dokter" -> {
-                // Dokter: hanya Obat + Pemeriksaan + Rekam + Prediksi
+                // Dokter: hanya Obat + Pemeriksaan + Resep + Rekam + Prediksi
                 btnPasien.setVisible(false);   btnPasien.setManaged(false);
                 btnDokter.setVisible(false);   btnDokter.setManaged(false);
                 btnPetugas.setVisible(false);  btnPetugas.setManaged(false);
+                btnPoli.setVisible(false);     btnPoli.setManaged(false);
+                btnJadwal.setVisible(false);   btnJadwal.setManaged(false);
                 btnPendaftaran.setVisible(false); btnPendaftaran.setManaged(false);
             }
             default -> {
@@ -239,8 +264,11 @@ public class DashboardController {
                 btnDokter.setVisible(false);   btnDokter.setManaged(false);
                 btnPetugas.setVisible(false);  btnPetugas.setManaged(false);
                 btnObat.setVisible(false);     btnObat.setManaged(false);
+                btnPoli.setVisible(false);     btnPoli.setManaged(false);
+                btnJadwal.setVisible(false);   btnJadwal.setManaged(false);
                 btnPendaftaran.setVisible(false); btnPendaftaran.setManaged(false);
                 btnPemeriksaan.setVisible(false); btnPemeriksaan.setManaged(false);
+                btnResepObat.setVisible(false); btnResepObat.setManaged(false);
                 btnRekam.setVisible(false);    btnRekam.setManaged(false);
                 btnPrediksi.setVisible(false); btnPrediksi.setManaged(false);
             }
@@ -262,6 +290,8 @@ public class DashboardController {
             Stage stage = (Stage) sidebar.getScene().getWindow();
             stage.setScene(scene);
             stage.setMaximized(false);
+            stage.setMinWidth(420);
+            stage.setMinHeight(580);
             stage.setWidth(480);
             stage.setHeight(620);
             stage.centerOnScreen();

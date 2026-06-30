@@ -16,10 +16,14 @@
             <padding>
                 <Insets top="20" right="20" bottom="15" left="20"/>
             </padding>
-            <Label text="🧠 PREDIKSI RISIKO DIABETES"
+            <Label text="PREDIKSI RISIKO DIABETES"
                    styleClass="title"
                    maxWidth="Infinity"
-                   alignment="CENTER"/>
+                   alignment="CENTER"
+                   contentDisplay="LEFT"
+                   graphicTextGap="8">
+                <graphic><Label styleClass="icon-mi" text="&#xEA4A;"/></graphic>
+            </Label>
             <Label text="Masukkan data medis pasien untuk memprediksi risiko diabetes"
                    styleClass="subtitle"
                    maxWidth="Infinity"
@@ -131,21 +135,33 @@
 
             <!-- BUTTON PREDIKSI -->
             <HBox alignment="CENTER" spacing="15">
-                <Button text="🔍 Prediksi Sekarang"
+                <Button text="Prediksi Sekarang"
                         onAction="#handlePrediksi"
                         styleClass="btn-primary"
                         prefWidth="200"
-                        prefHeight="42"/>
-                <Button text="🔄 Reset"
+                        prefHeight="42"
+                        contentDisplay="LEFT"
+                        graphicTextGap="8">
+                    <graphic><Label styleClass="icon-mi" text="&#xE8B6;"/></graphic>
+                </Button>
+                <Button text="Reset"
                         onAction="#handleReset"
                         styleClass="btn-secondary"
                         prefWidth="120"
-                        prefHeight="42"/>
-                <Button text="❌ Tutup"
+                        prefHeight="42"
+                        contentDisplay="LEFT"
+                        graphicTextGap="8">
+                    <graphic><Label styleClass="icon-mi" text="&#xE5D5;"/></graphic>
+                </Button>
+                <Button text="Tutup"
                         onAction="#handleTutup"
                         styleClass="btn-danger"
                         prefWidth="120"
-                        prefHeight="42"/>
+                        prefHeight="42"
+                        contentDisplay="LEFT"
+                        graphicTextGap="8">
+                    <graphic><Label styleClass="icon-mi" text="&#xE5CD;"/></graphic>
+                </Button>
             </HBox>
 
             <!-- HASIL PREDIKSI -->

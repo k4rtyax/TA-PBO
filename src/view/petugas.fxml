@@ -16,33 +16,39 @@
 
             <!-- TOOLBAR -->
             <HBox spacing="15" alignment="CENTER">
-                <Button text="➕"
-                        onAction="#handleTambah"
-                        styleClass="btn-tambah"/>
+                <Button onAction="#handleTambah"
+                        styleClass="btn-tambah">
+                    <graphic><Label styleClass="icon-mi" text="&#xE145;"/></graphic>
+                </Button>
 
-                <Button text="✏"
-                        onAction="#handleEdit"
-                        styleClass="btn-edit"/>
+                <Button onAction="#handleEdit"
+                        styleClass="btn-edit">
+                    <graphic><Label styleClass="icon-mi" text="&#xE3C9;"/></graphic>
+                </Button>
 
-                <Button text="🗑"
-                        onAction="#handleHapus"
-                        styleClass="btn-hapus"/>
+                <Button onAction="#handleHapus"
+                        styleClass="btn-hapus">
+                    <graphic><Label styleClass="icon-mi" text="&#xE872;"/></graphic>
+                </Button>
 
-                <Button text="🔄"
-                        onAction="#loadData"
-                        styleClass="btn-refresh"/>
+                <Button onAction="#loadData"
+                        styleClass="btn-refresh">
+                    <graphic><Label styleClass="icon-mi" text="&#xE5D5;"/></graphic>
+                </Button>
 
                 <TextField fx:id="txtCari"
                            promptText="Cari petugas..."
                            prefWidth="180"/>
 
-                <Button text="🔍"
-                        onAction="#handleCari"
-                        styleClass="btn-cari"/>
+                <Button onAction="#handleCari"
+                        styleClass="btn-cari">
+                    <graphic><Label styleClass="icon-mi" text="&#xE8B6;"/></graphic>
+                </Button>
 
-                <Button text="❌"
-                        onAction="#handleClose"
-                        styleClass="btn-close"/>
+                <Button onAction="#handleClose"
+                        styleClass="btn-close">
+                    <graphic><Label styleClass="icon-mi" text="&#xE5CD;"/></graphic>
+                </Button>
             </HBox>
         </VBox>
     </top>

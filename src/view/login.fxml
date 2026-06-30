@@ -6,7 +6,7 @@
 
 <ScrollPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="controller.LoginController"
-            stylesheets="@../style/global.css"
+            stylesheets="@../style/global.css, @style.css"
             fitToWidth="true"
             fitToHeight="true"
             hbarPolicy="NEVER"
@@ -29,7 +29,7 @@
             </StackPane.margin>
 
             <!-- ICON -->
-            <Label text="🏥" style="-fx-font-size: 52px;" alignment="CENTER"/>
+            <Label text="&#xE548;" styleClass="icon-mi" style="-fx-font-size: 52px;" alignment="CENTER"/>
 
             <!-- APP TITLE -->
             <Label text="SMART CLINIC"
@@ -74,13 +74,17 @@
             </Label>
 
             <!-- LOGIN BUTTON -->
-            <Button fx:id="btnLogin" text="🔐  Masuk"
+            <Button fx:id="btnLogin" text="Masuk"
                     maxWidth="Infinity"
                     onAction="#handleLogin"
+                    contentDisplay="LEFT"
+                    graphicTextGap="8"
                     style="-fx-background-color: linear-gradient(to right, #2563eb, #1e40af);
                            -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 15px;
                            -fx-background-radius: 30; -fx-cursor: hand; -fx-padding: 13 0;
-                           -fx-effect: dropshadow(gaussian, rgba(37,99,235,0.4), 12, 0, 0, 4);"/>
+                           -fx-effect: dropshadow(gaussian, rgba(37,99,235,0.4), 12, 0, 0, 4);">
+                <graphic><Label styleClass="icon-mi" text="&#xE897;" style="-fx-text-fill: white;"/></graphic>
+            </Button>
 
             <!-- FOOTER -->
             <Label text="© 2025 Smart Clinic – Tugas Akhir PBO"

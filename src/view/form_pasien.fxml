@@ -133,18 +133,26 @@
                 <HBox spacing="20"
                     alignment="CENTER">
 
-                    <Button text="💾 Simpan"
-                            fx:id="btnSimpan"
+                    <Button fx:id="btnSimpan"
+                            text="Simpan"
                             onAction="#handleSimpan"
                             styleClass="btn-save"
                             prefWidth="120"
-                            prefHeight="40"/>
+                            prefHeight="40"
+                            contentDisplay="LEFT"
+                            graphicTextGap="8">
+                        <graphic><Label styleClass="icon-mi" text="&#xE161;"/></graphic>
+                    </Button>
 
-                    <Button text="✖ Batal"
+                    <Button text="Batal"
                             onAction="#handleBatal"
                             styleClass="btn-cancel"
                             prefWidth="120"
-                            prefHeight="40"/>
+                            prefHeight="40"
+                            contentDisplay="LEFT"
+                            graphicTextGap="8">
+                        <graphic><Label styleClass="icon-mi" text="&#xE5CD;"/></graphic>
+                    </Button>
 
                 </HBox>
 

@@ -1,3 +1,34 @@
+@font-face {
+    src: url('fonts/MaterialIcons-Regular.ttf');
+}
+
+.icon-mi {
+    -fx-font-family: "Material Icons";
+    -fx-font-smoothing-type: gray;
+    -fx-text-fill: #1e293b;
+}
+
+/* Ikon putih untuk tombol/elemen berlatar belakang gelap atau berwarna */
+.menu-btn .icon-mi,
+.logout-btn .icon-mi,
+.toggle-btn .icon-mi,
+.card-title .icon-mi,
+.btn-save .icon-mi,
+.btn-cancel .icon-mi,
+.btn-save-modern .icon-mi,
+.btn-cancel-modern .icon-mi,
+.btn-primary .icon-mi,
+.btn-danger .icon-mi,
+.btn-secondary .icon-mi,
+.btn-tambah .icon-mi,
+.btn-edit .icon-mi,
+.btn-hapus .icon-mi,
+.btn-refresh .icon-mi,
+.btn-cari .icon-mi,
+.btn-close .icon-mi {
+    -fx-text-fill: white;
+}
+
 .root{
 
     -fx-font-family: "Segoe UI";
@@ -31,10 +62,6 @@
     -fx-font-weight: bold;
 }
 
-.table-view{
-
-    -fx-pref-height: 400;
-}
 .icon-button{
 
     -fx-background-radius: 50;

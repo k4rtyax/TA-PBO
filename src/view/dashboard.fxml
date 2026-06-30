@@ -23,9 +23,10 @@
               prefWidth="240"
               styleClass="sidebar">
 
-            <Button text="☰"
-                    onAction="#toggleSidebar"
-                    styleClass="toggle-btn"/>
+            <Button onAction="#toggleSidebar"
+                    styleClass="toggle-btn">
+                <graphic><Label styleClass="icon-mi" text="&#xE5D2;"/></graphic>
+            </Button>
 
             <Label fx:id="logoTitle"
                    text="SMART CLINIC"
@@ -35,55 +36,94 @@
 
             <!-- MENU -->
             <!-- MENU -->
-            <Button fx:id="btnDashboard" text="🏠  Dashboard"
-                    styleClass="menu-btn"/>
+            <Button fx:id="btnDashboard" text="Dashboard"
+                    styleClass="menu-btn" contentDisplay="LEFT" graphicTextGap="10">
+                <graphic><Label styleClass="icon-mi" text="&#xE88A;"/></graphic>
+            </Button>
 
             <Label fx:id="lblMaster" text="MASTER DATA"
                 styleClass="menu-group"/>
 
-            <Button fx:id="btnPasien" text="👨‍⚕  Pasien"
-                    styleClass="menu-btn"
-                    onAction="#openPasien"/>
+            <Button fx:id="btnPasien" text="Pasien"
+                    styleClass="menu-btn" contentDisplay="LEFT" graphicTextGap="10"
+                    onAction="#openPasien">
+                <graphic><Label styleClass="icon-mi" text="&#xE7FD;"/></graphic>
+            </Button>
 
-            <Button fx:id="btnDokter" text="🩺  Dokter"
-                    styleClass="menu-btn" onAction="#openDokter" />
+            <Button fx:id="btnDokter" text="Dokter"
+                    styleClass="menu-btn" contentDisplay="LEFT" graphicTextGap="10" onAction="#openDokter">
+                <graphic><Label styleClass="icon-mi" text="&#xF109;"/></graphic>
+            </Button>
 
-            <Button fx:id="btnPetugas" text="👩‍💼  Petugas"
-                    styleClass="menu-btn" onAction="#openPetugas"/>
+            <Button fx:id="btnPetugas" text="Petugas"
+                    styleClass="menu-btn" contentDisplay="LEFT" graphicTextGap="10" onAction="#openPetugas">
+                <graphic><Label styleClass="icon-mi" text="&#xEA67;"/></graphic>
+            </Button>
 
-            <Button fx:id="btnObat" text="💊  Obat"
-                    styleClass="menu-btn" onAction="#openObat"/>
+            <Button fx:id="btnObat" text="Obat"
+                    styleClass="menu-btn" contentDisplay="LEFT" graphicTextGap="10" onAction="#openObat">
+                <graphic><Label styleClass="icon-mi" text="&#xF033;"/></graphic>
+            </Button>
+
+            <Button fx:id="btnPoli" text="Poli"
+                    styleClass="menu-btn" contentDisplay="LEFT" graphicTextGap="10" onAction="#openPoli">
+                <graphic><Label styleClass="icon-mi" text="&#xE548;"/></graphic>
+            </Button>
+
+            <Button fx:id="btnJadwal" text="Jadwal Dokter"
+                    styleClass="menu-btn" contentDisplay="LEFT" graphicTextGap="10" onAction="#openJadwal">
+                <graphic><Label styleClass="icon-mi" text="&#xEBCC;"/></graphic>
+            </Button>
 
             <Label fx:id="lblTransaksi" text="TRANSAKSI"
                 styleClass="menu-group"/>
 
-            <Button fx:id="btnPendaftaran" text="📝  Pendaftaran Periksa"
-                    styleClass="menu-btn"  onAction="#openPendaftaran" />
+            <Button fx:id="btnPendaftaran" text="Pendaftaran Periksa"
+                    styleClass="menu-btn" contentDisplay="LEFT" graphicTextGap="10"  onAction="#openPendaftaran">
+                <graphic><Label styleClass="icon-mi" text="&#xE85D;"/></graphic>
+            </Button>
 
-            <Button fx:id="btnPemeriksaan" text="🩻  Pemeriksaan Dokter"
-                    styleClass="menu-btn" onAction="#openPemeriksaan"  />
+            <Button fx:id="btnPemeriksaan" text="Pemeriksaan Dokter"
+                    styleClass="menu-btn" contentDisplay="LEFT" graphicTextGap="10" onAction="#openPemeriksaan">
+                <graphic><Label styleClass="icon-mi" text="&#xE3F3;"/></graphic>
+            </Button>
 
-            <Button fx:id="btnRekam" text="📋  Rekam Medis"
-                    styleClass="menu-btn" onAction="#openRekam"/>
+            <Button fx:id="btnResepObat" text="Resep Obat"
+                    styleClass="menu-btn" contentDisplay="LEFT" graphicTextGap="10" onAction="#openResepObat">
+                <graphic><Label styleClass="icon-mi" text="&#xE138;"/></graphic>
+            </Button>
 
-            <Button fx:id="btnPrediksi" text="🧠  Prediksi ML"
-                    styleClass="menu-btn"
-                    onAction="#openPrediksi"/>
+            <Button fx:id="btnRekam" text="Rekam Medis"
+                    styleClass="menu-btn" contentDisplay="LEFT" graphicTextGap="10" onAction="#openRekam">
+                <graphic><Label styleClass="icon-mi" text="&#xE873;"/></graphic>
+            </Button>
+
+            <Button fx:id="btnPrediksi" text="Prediksi ML"
+                    styleClass="menu-btn" contentDisplay="LEFT" graphicTextGap="10"
+                    onAction="#openPrediksi">
+                <graphic><Label styleClass="icon-mi" text="&#xEA4A;"/></graphic>
+            </Button>
 
             <Label fx:id="lblLaporan" text="LAPORAN"
                 styleClass="menu-group"/>
 
-            <Button text="📊  Hasil&amp;Riwayat"
-                    styleClass="menu-btn"/>
+            <Button text="Hasil&amp;Riwayat"
+                    styleClass="menu-btn" contentDisplay="LEFT" graphicTextGap="10">
+                <graphic><Label styleClass="icon-mi" text="&#xE26B;"/></graphic>
+            </Button>
 
-            <Button text="📈  Laporan Klinik"
-                    styleClass="menu-btn"/>
-                    
+            <Button text="Laporan Klinik"
+                    styleClass="menu-btn" contentDisplay="LEFT" graphicTextGap="10">
+                <graphic><Label styleClass="icon-mi" text="&#xE8E5;"/></graphic>
+            </Button>
+
             <Region VBox.vgrow="ALWAYS"/>
 
-            <Button text="🚪 Logout"
-                    styleClass="logout-btn"
-                    onAction="#handleLogout"/>
+            <Button text="Logout"
+                    styleClass="logout-btn" contentDisplay="LEFT" graphicTextGap="10"
+                    onAction="#handleLogout">
+                <graphic><Label styleClass="icon-mi" text="&#xE9BA;"/></graphic>
+            </Button>
 
         </VBox>
 
@@ -123,7 +163,7 @@
     <!-- CENTER -->
     <center>
 
-        <VBox spacing="25">
+        <VBox spacing="25" VBox.vgrow="ALWAYS">
                <padding>
                 <Insets top="25" right="25" bottom="25" left="25"/>
                 </padding>
@@ -134,10 +174,13 @@
                 <VBox spacing="10"
                       prefWidth="250"
                       prefHeight="120"
+                      HBox.hgrow="ALWAYS"
+                      maxWidth="Infinity"
                       styleClass="card-blue">
 
-                    <Label text="👨‍⚕ Total Pasien"
-                           styleClass="card-title"/>
+                    <Label styleClass="card-title" contentDisplay="LEFT" graphicTextGap="6" text="Total Pasien">
+                        <graphic><Label styleClass="icon-mi" text="&#xE7FD;"/></graphic>
+                    </Label>
 
                     <Label fx:id="lblTotalPasien"
                            text="0"
@@ -148,10 +191,13 @@
                 <VBox spacing="10"
                       prefWidth="250"
                       prefHeight="120"
+                      HBox.hgrow="ALWAYS"
+                      maxWidth="Infinity"
                       styleClass="card-green">
 
-                    <Label text="📋 Rekam Medis"
-                           styleClass="card-title"/>
+                    <Label styleClass="card-title" contentDisplay="LEFT" graphicTextGap="6" text="Rekam Medis">
+                        <graphic><Label styleClass="icon-mi" text="&#xE873;"/></graphic>
+                    </Label>
 
                     <Label fx:id="lblTotalRekam"
                            text="0"
@@ -162,10 +208,13 @@
                 <VBox spacing="10"
                       prefWidth="250"
                       prefHeight="120"
+                      HBox.hgrow="ALWAYS"
+                      maxWidth="Infinity"
                       styleClass="card-orange">
 
-                    <Label text="🧠 Prediksi"
-                           styleClass="card-title"/>
+                    <Label styleClass="card-title" contentDisplay="LEFT" graphicTextGap="6" text="Prediksi">
+                        <graphic><Label styleClass="icon-mi" text="&#xEA4A;"/></graphic>
+                    </Label>
 
                     <Label fx:id="lblTotalPrediksi"
                            text="0"
@@ -176,10 +225,13 @@
                 <VBox spacing="10"
                       prefWidth="250"
                       prefHeight="120"
+                      HBox.hgrow="ALWAYS"
+                      maxWidth="Infinity"
                       styleClass="card-red">
 
-                    <Label text="💊 Obat"
-                           styleClass="card-title"/>
+                    <Label styleClass="card-title" contentDisplay="LEFT" graphicTextGap="6" text="Obat">
+                        <graphic><Label styleClass="icon-mi" text="&#xF033;"/></graphic>
+                    </Label>
 
                     <Label fx:id="lblTotalObat"
                            text="0"
@@ -191,12 +243,14 @@
 
             <!-- TABLE SECTION -->
             <VBox spacing="15"
+                  VBox.vgrow="ALWAYS"
                   styleClass="table-container">
 
                 <Label text="Data Pasien Terbaru"
                        styleClass="section-title"/>
 
                 <TableView fx:id="tableDashboard"
+                           VBox.vgrow="ALWAYS"
                            prefHeight="500">
 
                     <columns>

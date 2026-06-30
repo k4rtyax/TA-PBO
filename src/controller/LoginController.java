@@ -49,7 +49,7 @@ public class LoginController {
 
         lblError.setText("");
         btnLogin.setDisable(true);
-        btnLogin.setText("⏳  Memverifikasi...");
+        btnLogin.setText("Memverifikasi...");
 
         try {
             User user = userService.login(username, password);
@@ -85,11 +85,11 @@ public class LoginController {
             stage.setMaximized(true);
 
         } catch (Exception e) {
-            lblError.setText("⚠ " + e.getMessage());
+            lblError.setText(e.getMessage());
             txtPassword.clear();
         } finally {
             btnLogin.setDisable(false);
-            btnLogin.setText("🔐  Masuk");
+            btnLogin.setText("Masuk");
         }
     }
 }
