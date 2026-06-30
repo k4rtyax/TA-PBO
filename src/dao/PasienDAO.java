@@ -78,6 +78,16 @@ public class PasienDAO {
         }
     }
 
+    // UPDATE VITALS (targeted, dipakai oleh PemeriksaanService agar tidak menimpa field lain)
+    public void updateVitals(int idPasien, double tekananDarah, double gulaDarah) throws SQLException {
+        String sql = "UPDATE pasien SET tekanan_darah=?, gula_darah=? WHERE id_pasien=?";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setDouble(1, tekananDarah);
+        ps.setDouble(2, gulaDarah);
+        ps.setInt(3, idPasien);
+        ps.executeUpdate();
+    }
+
     // DELETE
     public void deletePasien(int id){
 

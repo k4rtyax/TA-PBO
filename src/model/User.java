@@ -86,12 +86,4 @@ public class User {
     public void setNamaDokter(String namaDokter) {
         this.namaDokter = namaDokter;
     }
-
-    public boolean login(String user, String pass) {
-        return username.equals(user) && password.equals(pass);
-    }
-
-    public void logout() {
-        System.out.println("Logout berhasil");
-    }
 }

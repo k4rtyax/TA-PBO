@@ -9,6 +9,7 @@ import util.AlertUtil;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 import util.SceneUtil;
+import util.SessionUtil;
 import service.RekamMedisService;
 import java.util.Date;
 
@@ -57,6 +58,7 @@ public class RekamMedisController {
 
     @FXML
     public void handleTambah() {
+        if (!SessionUtil.requireRole("Admin", "Dokter")) return;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/form_rekam_medis.fxml"));
             Stage stage = SceneUtil.createModal(loader, "Tambah Rekam Medis", 800, 420);
@@ -72,6 +74,7 @@ public class RekamMedisController {
 
     @FXML
     public void handleEdit() {
+        if (!SessionUtil.requireRole("Admin", "Dokter")) return;
         try {
             RekamMedis rekam = tableRekam.getSelectionModel().getSelectedItem();
             if (rekam == null) {
@@ -105,6 +108,7 @@ public class RekamMedisController {
 
     @FXML
     public void handleHapus() {
+        if (!SessionUtil.requireRole("Admin", "Dokter")) return;
         try {
             RekamMedis rekam = tableRekam.getSelectionModel().getSelectedItem();
             if (rekam == null) {

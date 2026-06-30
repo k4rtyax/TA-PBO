@@ -9,6 +9,7 @@ import util.AlertUtil;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 import util.SceneUtil;
+import util.SessionUtil;
 import service.PendaftaranService;
 import java.util.Date;
 
@@ -55,6 +56,7 @@ public class PendaftaranController {
 
     @FXML
     public void handleTambah() {
+        if (!SessionUtil.requireRole("Admin", "Petugas")) return;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/form_pendaftaran.fxml"));
             Stage stage = SceneUtil.createModal(loader, "Tambah Pendaftaran", 800, 420);
@@ -70,6 +72,7 @@ public class PendaftaranController {
 
     @FXML
     public void handleEdit() {
+        if (!SessionUtil.requireRole("Admin", "Petugas")) return;
         try {
             Pendaftaran pendaftaran = tablePendaftaran.getSelectionModel().getSelectedItem();
             if (pendaftaran == null) {
@@ -104,6 +107,7 @@ public class PendaftaranController {
 
     @FXML
     public void handleHapus() {
+        if (!SessionUtil.requireRole("Admin", "Petugas")) return;
         try {
             Pendaftaran pendaftaran = tablePendaftaran.getSelectionModel().getSelectedItem();
             if (pendaftaran == null) {

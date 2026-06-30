@@ -9,6 +9,7 @@ import util.AlertUtil;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 import util.SceneUtil;
+import util.SessionUtil;
 import service.DokterService;
 
 public class DokterController {
@@ -54,6 +55,7 @@ public class DokterController {
 
     @FXML
     public void handleTambah() {
+        if (!SessionUtil.requireRole("Admin")) return;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/form_dokter.fxml"));
             Stage stage = SceneUtil.createModal(loader, "Tambah Dokter", 800, 420);
@@ -69,6 +71,7 @@ public class DokterController {
 
     @FXML
     public void handleEdit() {
+        if (!SessionUtil.requireRole("Admin")) return;
         try {
             Dokter dokter = tableDokter.getSelectionModel().getSelectedItem();
             if (dokter == null) {
@@ -103,6 +106,7 @@ public class DokterController {
 
     @FXML
     public void handleHapus() {
+        if (!SessionUtil.requireRole("Admin")) return;
         try {
             Dokter dokter = tableDokter.getSelectionModel().getSelectedItem();
             if (dokter == null) {

@@ -9,6 +9,7 @@ import util.AlertUtil;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 import util.SceneUtil;
+import util.SessionUtil;
 import service.UserService;
 
 public class PetugasController {
@@ -52,6 +53,7 @@ public class PetugasController {
 
     @FXML
     public void handleTambah() {
+        if (!SessionUtil.requireRole("Admin")) return;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/form_petugas.fxml"));
             Stage stage = SceneUtil.createModal(loader, "Tambah Petugas", 800, 420);
@@ -67,6 +69,7 @@ public class PetugasController {
 
     @FXML
     public void handleEdit() {
+        if (!SessionUtil.requireRole("Admin")) return;
         try {
             User user = tableUser.getSelectionModel().getSelectedItem();
             if (user == null) {
@@ -100,6 +103,7 @@ public class PetugasController {
 
     @FXML
     public void handleHapus() {
+        if (!SessionUtil.requireRole("Admin")) return;
         try {
             User user = tableUser.getSelectionModel().getSelectedItem();
             if (user == null) {

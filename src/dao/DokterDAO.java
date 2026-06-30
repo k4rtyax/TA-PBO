@@ -62,15 +62,11 @@ public class DokterDAO {
     }
 
     // DELETE
-    public void deleteDokter(int id) {
-        try {
-            String sql = "DELETE FROM dokter WHERE id_dokter=?";
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setInt(1, id);
-            ps.executeUpdate();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void deleteDokter(int id) throws SQLException {
+        String sql = "DELETE FROM dokter WHERE id_dokter=?";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setInt(1, id);
+        ps.executeUpdate();
     }
 
     // SEARCH

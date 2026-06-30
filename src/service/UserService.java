@@ -62,7 +62,8 @@ public class UserService {
         if (u.getUsername() == null || u.getUsername().trim().isEmpty()) {
             throw new Exception("Username wajib diisi");
         }
-        if (u.getPassword() == null || u.getPassword().trim().isEmpty()) {
+        boolean passwordKosong = u.getPassword() == null || u.getPassword().trim().isEmpty();
+        if (!modeEdit && passwordKosong) {
             throw new Exception("Password wajib diisi");
         }
         if (u.getIdRole() <= 0) {
@@ -70,7 +71,13 @@ public class UserService {
         }
 
         if (modeEdit) {
-            dao.updateUser(u);
+            if (passwordKosong) {
+                // password tidak diubah, pertahankan hash lama
+                u.setPassword(dao.getPasswordById(u.getIdUser()));
+                dao.updateUserKeepHashedPassword(u);
+            } else {
+                dao.updateUser(u);
+            }
         } else {
             dao.insertUser(u);
         }

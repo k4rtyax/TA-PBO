@@ -9,6 +9,7 @@ import util.AlertUtil;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 import util.SceneUtil;
+import util.SessionUtil;
 import service.PemeriksaanService;
 import java.util.Date;
 
@@ -79,6 +80,7 @@ public class PemeriksaanController {
 
     @FXML
     public void handleTambah() {
+        if (!SessionUtil.requireRole("Admin", "Dokter")) return;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/form_pemeriksaan.fxml"));
             Stage stage = SceneUtil.createModal(loader, "Tambah Pemeriksaan", 800, 550);
@@ -94,6 +96,7 @@ public class PemeriksaanController {
 
     @FXML
     public void handleEdit() {
+        if (!SessionUtil.requireRole("Admin", "Dokter")) return;
         try {
             Pemeriksaan pemeriksaan = tablePemeriksaan.getSelectionModel().getSelectedItem();
             if (pemeriksaan == null) {
@@ -128,6 +131,7 @@ public class PemeriksaanController {
 
     @FXML
     public void handleHapus() {
+        if (!SessionUtil.requireRole("Admin", "Dokter")) return;
         try {
             Pemeriksaan pemeriksaan = tablePemeriksaan.getSelectionModel().getSelectedItem();
             if (pemeriksaan == null) {

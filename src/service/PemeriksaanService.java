@@ -69,23 +69,9 @@ public class PemeriksaanService {
         }
 
         // UPDATE PASIEN'S MEASUREMENTS
-        try {
-            Pasien pasien = pm.getPendaftaran().getPasien();
-            if (pasien != null) {
-                // Fetch latest full details of the patient first if needed, or update directly
-                // Let's load the patient list and find our patient
-                ObservableList<Pasien> allPasien = pasienDao.getAllPasien();
-                for (Pasien p : allPasien) {
-                    if (p.getIdPasien() == pasien.getIdPasien()) {
-                        p.setTekananDarah(pm.getTekananDarah());
-                        p.setGulaDarah(pm.getGulaDarah());
-                        pasienDao.updatePasien(p);
-                        break;
-                    }
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        Pasien pasien = pm.getPendaftaran().getPasien();
+        if (pasien != null) {
+            pasienDao.updateVitals(pasien.getIdPasien(), pm.getTekananDarah(), pm.getGulaDarah());
         }
     }
 }

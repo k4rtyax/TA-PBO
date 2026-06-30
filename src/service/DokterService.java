@@ -28,7 +28,11 @@ public class DokterService {
         if (id <= 0) {
             throw new Exception("ID dokter tidak valid");
         }
-        dao.deleteDokter(id);
+        try {
+            dao.deleteDokter(id);
+        } catch (java.sql.SQLException e) {
+            throw new Exception("Tidak bisa menghapus dokter karena masih memiliki data terkait (pendaftaran/rekam medis/akun user)", e);
+        }
     }
 
     // =========================

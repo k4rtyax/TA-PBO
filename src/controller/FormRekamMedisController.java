@@ -1,5 +1,7 @@
 package controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
@@ -8,6 +10,7 @@ import model.RekamMedis;
 import service.PemeriksaanService;
 import service.RekamMedisService;
 import util.AlertUtil;
+import util.SessionUtil;
 import util.ValidationUtil;
 
 import java.time.LocalDate;
@@ -35,7 +38,21 @@ public class FormRekamMedisController {
     @FXML
     public void initialize() {
         try {
-            cbPemeriksaan.setItems(pemeriksaanService.getAll());
+            ObservableList<Pemeriksaan> all = pemeriksaanService.getAll();
+            if (SessionUtil.isDokter()) {
+                Integer idDokter = SessionUtil.getCurrentDoctorId();
+                ObservableList<Pemeriksaan> milikSendiri = FXCollections.observableArrayList();
+                for (Pemeriksaan pm : all) {
+                    if (pm.getPendaftaran() != null && pm.getPendaftaran().getDokter() != null
+                            && idDokter != null
+                            && pm.getPendaftaran().getDokter().getIdDokter() == idDokter) {
+                        milikSendiri.add(pm);
+                    }
+                }
+                cbPemeriksaan.setItems(milikSendiri);
+            } else {
+                cbPemeriksaan.setItems(all);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

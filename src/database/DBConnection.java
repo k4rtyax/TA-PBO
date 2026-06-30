@@ -1,26 +1,27 @@
 package database;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import javafx.scene.control.Alert;
 public class DBConnection {
-    public static Connection connect() {
+    private static Connection conn;
+
+    public static synchronized Connection connect() {
+        try {
+            if (conn != null && !conn.isClosed()) return conn;
+        } catch (SQLException ignored) {
+            // koneksi lama sudah tidak valid, lanjut buat baru di bawah
+        }
         try {
             // LOAD DRIVER
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = null;
-            try {
-                conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/smart_clinic",
-                    "root",
-                    "northernass123"
-                );
-            } catch (Exception e) {
-                conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/smart_clinic",
-                    "root",
-                    ""
-                );
-            }
+            String pass = System.getenv("SMARTCLINIC_DB_PASSWORD");
+            if (pass == null) pass = "";
+            conn = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/smart_clinic",
+                "root",
+                pass
+            );
             System.out.println("Koneksi berhasil!");
             return conn;
         } catch (Exception e) {

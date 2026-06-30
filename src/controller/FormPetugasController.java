@@ -61,8 +61,9 @@ public class FormPetugasController {
         txtId.setText(String.valueOf(u.getIdUser()));
         txtNama.setText(u.getNama());
         txtUsername.setText(u.getUsername());
-        txtPassword.setText(u.getPassword());
-        
+        txtPassword.setText("");
+        txtPassword.setPromptText("Kosongkan jika tidak ingin mengubah password");
+
         if (u.getIdRole() == 1) {
             cbRole.setValue("Admin");
         } else if (u.getIdRole() == 3) {
@@ -90,7 +91,7 @@ public class FormPetugasController {
             if (ValidationUtil.isEmpty(txtUsername, "Username wajib diisi")) {
                 return;
             }
-            if (ValidationUtil.isEmpty(txtPassword, "Password wajib diisi")) {
+            if (!modeEdit && ValidationUtil.isEmpty(txtPassword, "Password wajib diisi")) {
                 return;
             }
             if (cbRole.getValue() == null) {

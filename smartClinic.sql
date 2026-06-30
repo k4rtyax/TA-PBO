@@ -1,12 +1,6 @@
 CREATE DATABASE smart_clinic;
 USE smart_clinic;
 
-CREATE TABLE users (
-    id_user INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL,
-    PASSWORD VARCHAR(100) NOT NULL,
-    ROLE VARCHAR(20)
-);
 CREATE TABLE dokter (
     id_dokter INT AUTO_INCREMENT PRIMARY KEY,
     nama VARCHAR(100) NOT NULL,
@@ -30,21 +24,6 @@ CREATE TABLE pendaftaran (
     id_daftar INT AUTO_INCREMENT PRIMARY KEY,
     tanggal DATE,
     keluhan TEXT,
-
-    id_pasien INT,
-    id_dokter INT,
-
-    FOREIGN KEY (id_pasien)
-    REFERENCES pasien(id_pasien),
-
-    FOREIGN KEY (id_dokter)
-    REFERENCES dokter(id_dokter)
-);
-CREATE TABLE rekam_medis (
-    id_rekam INT AUTO_INCREMENT PRIMARY KEY,
-    diagnosa TEXT,
-    resep TEXT,
-    catatan TEXT,
 
     id_pasien INT,
     id_dokter INT,
@@ -83,7 +62,6 @@ VALUES
 ('Ahmad', 40, 'Laki-laki',
 'Kendal', '089999999',
 150, 250);
-1);
 
 INSERT INTO pendaftaran
 (tanggal, keluhan, id_pasien, id_dokter)
@@ -93,19 +71,6 @@ VALUES
 'Sakit kepala',
 1,
 1);
-
-INSERT INTO rekam_medis
-(diagnosa, resep, catatan,
-id_pasien, id_dokter)
-
-VALUES
-(
-'Hipertensi',
-'Paracetamol',
-'Kontrol 1 minggu',
-2,
-1
-);
 
 INSERT INTO prediksi
 (hasil_prediksi,
@@ -133,16 +98,6 @@ ON pd.id_pasien = p.id_pasien
 
 JOIN dokter d
 ON pd.id_dokter = d.id_dokter;
-
-SELECT
-p.nama,
-r.diagnosa,
-r.resep
-
-FROM rekam_medis r
-
-JOIN pasien p
-ON r.id_pasien = p.id_pasien;
 
 SELECT
 p.nama,
@@ -183,11 +138,14 @@ VALUES
 ('Petugas'),
 ('Dokter');
 
+-- Password seed di-hash (SHA-256+salt, format "saltHex:hashHex") via util.PasswordUtil.
+-- Username/password login tetap: admin/123, petugas/123, dokter/123.
 INSERT INTO users
-(nama, username, password, id_role)
+(nama, username, password, id_role, id_dokter)
 VALUES
-('Administrator', 'admin', '123', 1),
-('Petugas Klinik', 'petugas', '123', 2);
+('Administrator', 'admin', '9c772a0afac971a3a1ccc2e39f6a7c56:99938e1b84e2f47a144bdda3b349f567c62e3703f952fce6e7225c5080c9a099', 1, NULL),
+('Petugas Klinik', 'petugas', '8833c2cd8a04cb25513ad312fb03d79d:733fd8e98604cbd64e31b3366e13c6c6e57993e231b78d5a87fe638d58f4b8ac', 2, NULL),
+('Dr. Andi', 'dokter', 'aff05d73df426f8d4c5c4aac750a8497:5b65be7d36397963f69fbfa502013bdf548a606fa675eed8074509b35921b486', 3, 1);
 
 
 -- =========================
@@ -274,5 +232,33 @@ VALUES
 ('Amoxicillin', 50, 12000),
 ('Vitamin C', 80, 3000);
 
+-- =========================
+-- TABEL POLI
+-- =========================
+CREATE TABLE poli (
+    id_poli INT AUTO_INCREMENT PRIMARY KEY,
+    nama_poli VARCHAR(100) NOT NULL,
+    deskripsi TEXT,
+    lokasi VARCHAR(100)
+);
+
+INSERT INTO poli(nama_poli, deskripsi, lokasi)
+VALUES
+('Poli Umum', 'Pemeriksaan kesehatan umum', 'Lantai 1'),
+('Poli Gigi', 'Perawatan dan pemeriksaan gigi', 'Lantai 1'),
+('Poli Anak', 'Pemeriksaan kesehatan anak', 'Lantai 2');
 
 
+-- =========================
+-- TABEL JADWAL
+-- =========================
+CREATE TABLE jadwal (
+    id_jadwal INT AUTO_INCREMENT PRIMARY KEY,
+    id_dokter INT,
+    id_poli INT,
+    hari VARCHAR(20),
+    jam_mulai VARCHAR(5),
+    jam_selesai VARCHAR(5),
+    FOREIGN KEY (id_dokter) REFERENCES dokter(id_dokter),
+    FOREIGN KEY (id_poli) REFERENCES poli(id_poli)
+);
