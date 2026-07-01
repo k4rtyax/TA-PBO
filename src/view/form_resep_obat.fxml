@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 
 <BorderPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controller.FormPetugasController"
+            fx:controller="controller.FormResepObatController"
             stylesheets="@style.css">
 
     <!-- TITLE -->
@@ -19,7 +19,7 @@
                         bottom="10"
                         left="20"/>
             </padding>
-            <Label text="FORM DATA PETUGAS / USER"
+            <Label text="FORM RESEP OBAT"
                    styleClass="title"/>
         </VBox>
     </top>
@@ -43,54 +43,55 @@
                 <columnConstraints>
                     <ColumnConstraints minWidth="120"/>
                     <ColumnConstraints minWidth="220"/>
-                    <ColumnConstraints minWidth="120"/>
-                    <ColumnConstraints minWidth="220"/>
                 </columnConstraints>
 
                 <!-- ROW 1 -->
-                <Label text="ID User"/>
+                <Label text="ID Resep"/>
                 <TextField fx:id="txtId"
                            editable="false"
                            prefWidth="220"
                            GridPane.columnIndex="1"/>
 
-                <Label text="Role"
-                       GridPane.columnIndex="2"/>
-                <ComboBox fx:id="cbRole"
-                          prefWidth="220"
-                          GridPane.columnIndex="3"/>
-
                 <!-- ROW 2 -->
-                <Label text="Nama Lengkap"
+                <Label text="Pilih Pemeriksaan"
                        GridPane.rowIndex="1"/>
-                <TextField fx:id="txtNama"
-                           prefWidth="220"
-                           GridPane.columnIndex="1"
-                           GridPane.rowIndex="1"/>
-
-                <Label text="Dokter Terkait"
-                       GridPane.columnIndex="2"
-                       GridPane.rowIndex="1"/>
-                <ComboBox fx:id="cbDokter"
+                <ComboBox fx:id="cbPemeriksaan"
                           prefWidth="220"
-                          GridPane.columnIndex="3"
+                          GridPane.columnIndex="1"
                           GridPane.rowIndex="1"/>
 
                 <!-- ROW 3 -->
-                <Label text="Username"
+                <Label text="Pilih Obat"
                        GridPane.rowIndex="2"/>
-                <TextField fx:id="txtUsername"
+                <ComboBox fx:id="cbObat"
+                          prefWidth="220"
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="2"/>
+
+                <!-- ROW 4 -->
+                <Label text="Jumlah"
+                       GridPane.rowIndex="3"/>
+                <TextField fx:id="txtJumlah"
                            prefWidth="220"
                            GridPane.columnIndex="1"
-                           GridPane.rowIndex="2"/>
+                           GridPane.rowIndex="3"/>
 
-                <Label text="Password"
-                       GridPane.columnIndex="2"
-                       GridPane.rowIndex="2"/>
-                <PasswordField fx:id="txtPassword"
-                               prefWidth="220"
-                               GridPane.columnIndex="3"
-                               GridPane.rowIndex="2"/>
+                <!-- ROW 5 -->
+                <Label text="Dosis"
+                       GridPane.rowIndex="4"/>
+                <TextField fx:id="txtDosis"
+                           prefWidth="220"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="4"/>
+
+                <!-- ROW 6 -->
+                <Label text="Keterangan"
+                       GridPane.rowIndex="5"/>
+                <TextArea fx:id="txtKeterangan"
+                          prefWidth="220"
+                          prefHeight="100"
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="5"/>
 
             </GridPane>
 

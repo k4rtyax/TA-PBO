@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 
 <BorderPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controller.FormPetugasController"
+            fx:controller="controller.FormPoliController"
             stylesheets="@style.css">
 
     <!-- TITLE -->
@@ -19,7 +19,7 @@
                         bottom="10"
                         left="20"/>
             </padding>
-            <Label text="FORM DATA PETUGAS / USER"
+            <Label text="FORM DATA POLI"
                    styleClass="title"/>
         </VBox>
     </top>
@@ -43,54 +43,39 @@
                 <columnConstraints>
                     <ColumnConstraints minWidth="120"/>
                     <ColumnConstraints minWidth="220"/>
-                    <ColumnConstraints minWidth="120"/>
-                    <ColumnConstraints minWidth="220"/>
                 </columnConstraints>
 
                 <!-- ROW 1 -->
-                <Label text="ID User"/>
+                <Label text="ID Poli"/>
                 <TextField fx:id="txtId"
                            editable="false"
                            prefWidth="220"
                            GridPane.columnIndex="1"/>
 
-                <Label text="Role"
-                       GridPane.columnIndex="2"/>
-                <ComboBox fx:id="cbRole"
-                          prefWidth="220"
-                          GridPane.columnIndex="3"/>
-
                 <!-- ROW 2 -->
-                <Label text="Nama Lengkap"
+                <Label text="Nama Poli"
                        GridPane.rowIndex="1"/>
-                <TextField fx:id="txtNama"
+                <TextField fx:id="txtNamaPoli"
                            prefWidth="220"
                            GridPane.columnIndex="1"
                            GridPane.rowIndex="1"/>
 
-                <Label text="Dokter Terkait"
-                       GridPane.columnIndex="2"
-                       GridPane.rowIndex="1"/>
-                <ComboBox fx:id="cbDokter"
-                          prefWidth="220"
-                          GridPane.columnIndex="3"
-                          GridPane.rowIndex="1"/>
-
                 <!-- ROW 3 -->
-                <Label text="Username"
+                <Label text="Lokasi"
                        GridPane.rowIndex="2"/>
-                <TextField fx:id="txtUsername"
+                <TextField fx:id="txtLokasi"
                            prefWidth="220"
                            GridPane.columnIndex="1"
                            GridPane.rowIndex="2"/>
 
-                <Label text="Password"
-                       GridPane.columnIndex="2"
-                       GridPane.rowIndex="2"/>
-                <PasswordField fx:id="txtPassword"
-                               prefWidth="220"
-                               GridPane.columnIndex="3"
-                               GridPane.rowIndex="2"/>
+                <!-- ROW 4 -->
+                <Label text="Deskripsi"
+                       GridPane.rowIndex="3"/>
+                <TextArea fx:id="txtDeskripsi"
+                          prefWidth="220"
+                          prefHeight="80"
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="3"/>
 
             </GridPane>
 

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.PoliController"
+            stylesheets="@style.css">
+
+    <!-- TOP -->
+    <top>
+        <VBox spacing="10" styleClass="top-panel">
+            <Label text="DATA POLI SMART CLINIC"
+                   styleClass="title" maxWidth="Infinity"
+                   alignment="CENTER" />
+
+            <!-- TOOLBAR -->
+            <HBox spacing="15" alignment="CENTER">
+                <Button onAction="#handleTambah"
+                        styleClass="btn-tambah">
+                    <graphic><Label styleClass="icon-mi" text="&#xE145;"/></graphic>
+                </Button>
+
+                <Button onAction="#handleEdit"
+                        styleClass="btn-edit">
+                    <graphic><Label styleClass="icon-mi" text="&#xE3C9;"/></graphic>
+                </Button>
+
+                <Button onAction="#handleHapus"
+                        styleClass="btn-hapus">
+                    <graphic><Label styleClass="icon-mi" text="&#xE872;"/></graphic>
+                </Button>
+
+                <Button onAction="#loadData"
+                        styleClass="btn-refresh">
+                    <graphic><Label styleClass="icon-mi" text="&#xE5D5;"/></graphic>
+                </Button>
+
+                <TextField fx:id="txtCari"
+                           promptText="Cari poli..."
+                           prefWidth="180"/>
+
+                <Button onAction="#handleCari"
+                        styleClass="btn-cari">
+                    <graphic><Label styleClass="icon-mi" text="&#xE8B6;"/></graphic>
+                </Button>
+
+                <Button onAction="#handleClose"
+                        styleClass="btn-close">
+                    <graphic><Label styleClass="icon-mi" text="&#xE5CD;"/></graphic>
+                </Button>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- CENTER -->
+    <center>
+        <VBox spacing="15" styleClass="main-panel">
+            <!-- TABLE -->
+            <TableView fx:id="tablePoli"
+                       VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colId"
+                                 text="ID" prefWidth="100"/>
+
+                    <TableColumn fx:id="colNama"
+                                 text="Nama Poli" prefWidth="200"/>
+
+                    <TableColumn fx:id="colDeskripsi"
+                                 text="Deskripsi" prefWidth="300"/>
+
+                    <TableColumn fx:id="colLokasi"
+                                 text="Lokasi" prefWidth="150"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+
+</BorderPane>
